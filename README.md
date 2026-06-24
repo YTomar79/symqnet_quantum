@@ -168,6 +168,11 @@ to run (checkpoints land in `artifacts/vae_n{N}_l16.pt`):
 .venv/bin/python -m symqnet.pretrain_vae --config configs/default.json
 ```
 
+> **Optional — skip this step.** Pretrained VAE checkpoints for N = 5, 8, 10,
+> and 12 ship with the repository in `artifacts/` (retrieved via Git LFS). If
+> you cloned with LFS, the downstream steps will use them automatically and you
+> can go straight to step 3.
+
 ### 3. Main result (N=5 Pareto benchmark)
 
 Trains five SymQNet seeds, evaluates them against every baseline on a shared
@@ -188,6 +193,18 @@ EPISODES=20 UPDATES=50 SEEDS=777 ALLOW_RANDOM_VAE=1 \
 Key outputs: `runs/main_result/paired_main.csv` (headline comparison),
 `shot_budget.svg`, `mse_latency_pareto.svg`, and per-seed checkpoints under
 `runs/main_result/symqnet_seed_*/best_agent.pt`.
+
+> **Optional — skip training.** The trained policy checkpoints for all five
+> seeds are committed under `runs/main_result/symqnet_seed_*/best_agent.pt`. To
+> reproduce the evaluation without retraining, point the evaluator at a shipped
+> checkpoint:
+>
+> ```bash
+> .venv/bin/python -m symqnet.eval \
+>   --config configs/default.json \
+>   --agent-checkpoint runs/main_result/symqnet_seed_777/best_agent.pt \
+>   --task-bank runs/main_result/task_bank.npz
+> ```
 
 ### 4. Scaling benchmark (N=8/10/12)
 
@@ -247,6 +264,18 @@ Before treating any run as final, run the fail-fast readiness check:
 .venv/bin/python -m symqnet.analysis.paper_readiness \
   --run-root runs/main_result --config configs/default.json
 ```
+
+### Common overrides
+
+| Variable | Meaning | Default |
+|----------|---------|---------|
+| `EPISODES` | Evaluation episodes per condition | `500` (main), `100` (scaling) |
+| `UPDATES` | PPO updates per training seed | `2500` |
+| `SEEDS` | Space-separated training seeds | `777 778 779 780 781` |
+| `JOBS` | Parallel worker processes | `4` |
+| `WITH_CRLB` | Include CRLB diagnostic columns (`0`/`1`) | `0` |
+| `ALLOW_RANDOM_VAE` | Use a random frozen VAE (smoke only) | `0` |
+
 
 ## Citation
 
