@@ -1,0 +1,34 @@
+{
+  "train_seed": 779,
+  "config_hash": "349936a47ca5",
+  "device": "cpu",
+  "hardware": "cpu:x86_64",
+  "best_mse": 0.07676065154373646,
+  "best_validation_mse": 0.07676065154373646,
+  "checkpoint_selection_metric": "heldout_validation_mse",
+  "validation_task_bank_path": "runs/scaling/n12/validation_task_bank.npz",
+  "validation_episodes": 4,
+  "validation_interval": 100,
+  "validation_seed": 20260516,
+  "train_wallclock_sec": 135869.18159201206,
+  "reward_mode": "info_gain",
+  "behavior_clone_checkpoint": "",
+  "validation_history": [
+    {
+      "update": 1,
+      "validation_mse": 0.08376000728458166
+    },
+    {
+      "update": 100,
+      "validation_mse": 0.07676065154373646
+    },
+    {
+      "update": 200,
+      "validation_mse": 0.08551848959177732
+    },
+    {
+      "update": 300,
+      "validation_mse": 0.0854501985013485
+    }
+  ]
+}

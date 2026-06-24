@@ -1,0 +1,2 @@
+shots,method,episodes,info_gain_mean,final_mse_mean,pearson_info_gain_vs_mse,spearman_info_gain_vs_mse
+128,symqnet,4500,4.902563969718085,0.0735011506287588,0.025854409832795865,-0.029949782105690898

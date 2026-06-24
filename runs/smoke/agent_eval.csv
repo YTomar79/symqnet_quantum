@@ -1,0 +1,2 @@
+method,shots,episodes,mse_mean,mse_median,mse_iqr,info_gain_mean
+smoke_agent,16,1.0,0.10208611190319061,0.10208611190319061,0.0,10.120267391204834

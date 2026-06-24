@@ -1,0 +1,31 @@
+\begin{tabular}{llrrrrr}
+\toprule
+Shots & Comparison & $n$ & MSE ratio & $\Delta$MSE & Speedup & $p_{\mathrm{BH}}$ \\
+\midrule
+32 & symqnet / random & 1500 & 1.52 & 0.0833 & 0.00925 & 4.42e-128 \\
+32 & symqnet / fixed & 1500 & 1.62 & 0.0924 & 0.000938 & 2.15e-164 \\
+32 & symqnet / fixed\_optimized & 1500 & 1.9 & 0.115 & 0.0207 & 9.26e-169 \\
+32 & symqnet / fisher\_greedy\_fast & 1500 & 1.68 & 0.0982 & 70.9 & 8.82e-143 \\
+32 & symqnet / bald\_2step\_fast & 1500 & 1.31 & 0.0575 & 37.2 & 1.34e-66 \\
+64 & symqnet / random & 1500 & 1.68 & 0.0999 & 0.00742 & 2.05e-146 \\
+64 & symqnet / fixed & 1500 & 1.85 & 0.113 & 0.00106 & 1.85e-191 \\
+64 & symqnet / fixed\_optimized & 1500 & 2.04 & 0.126 & 0.0147 & 8.38e-175 \\
+64 & symqnet / fisher\_greedy\_fast & 1500 & 1.81 & 0.11 & 87.3 & 2.47e-155 \\
+64 & symqnet / bald\_2step\_fast & 1500 & 1.32 & 0.0595 & 46 & 2.92e-66 \\
+128 & symqnet / random & 1500 & 1.7 & 0.104 & 0.00652 & 7.17e-138 \\
+128 & symqnet / fixed & 1500 & 2.18 & 0.137 & 0.000922 & 5.97e-212 \\
+128 & symqnet / fixed\_optimized & 1500 & 2.05 & 0.129 & 0.013 & 5.17e-167 \\
+128 & symqnet / fisher\_greedy\_fast & 1500 & 1.83 & 0.115 & 77.1 & 4.74e-147 \\
+128 & symqnet / bald\_2step\_fast & 1500 & 1.32 & 0.0611 & 51.8 & 5.14e-65 \\
+256 & symqnet / random & 1500 & 1.82 & 0.118 & 0.00584 & 1.08e-156 \\
+256 & symqnet / fixed & 1500 & 2.56 & 0.159 & 0.000818 & 5.02e-225 \\
+256 & symqnet / fixed\_optimized & 1500 & 2.15 & 0.14 & 0.0118 & 1.12e-171 \\
+256 & symqnet / fisher\_greedy\_fast & 1500 & 1.79 & 0.115 & 63.7 & 3.97e-137 \\
+256 & symqnet / bald\_2step\_fast & 1500 & 1.32 & 0.0631 & 41.1 & 6.47e-60 \\
+512 & symqnet / random & 1500 & 1.74 & 0.116 & 0.0166 & 8.64e-138 \\
+512 & symqnet / fixed & 1500 & 2.86 & 0.177 & 0.000935 & 1.31e-231 \\
+512 & symqnet / fixed\_optimized & 1500 & 1.95 & 0.133 & 0.0146 & 1.06e-146 \\
+512 & symqnet / fisher\_greedy\_fast & 1500 & 1.81 & 0.122 & 84.3 & 9.61e-146 \\
+512 & symqnet / bald\_2step\_fast & 1500 & 1.38 & 0.0744 & 55.9 & 5.87e-70 \\
+\bottomrule
+\end{tabular}

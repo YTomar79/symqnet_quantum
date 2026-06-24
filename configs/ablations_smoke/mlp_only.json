@@ -1,0 +1,8 @@
+{
+  "extends": "../smoke.json",
+  "output_dir": "runs/ablations_smoke/mlp_only",
+  "model": {
+    "graph": "none",
+    "temporal": "last"
+  }
+}

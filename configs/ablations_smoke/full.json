@@ -1,0 +1,7 @@
+{
+  "extends": "../smoke.json",
+  "output_dir": "runs/ablations_smoke/full",
+  "model": {
+    "temporal": "transformer"
+  }
+}

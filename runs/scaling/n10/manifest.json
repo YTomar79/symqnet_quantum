@@ -1,0 +1,450 @@
+{
+  "args": {
+    "ablation_baselines": [
+      "no_vae",
+      "no_smc_feedback",
+      "no_graph",
+      "mlp_only"
+    ],
+    "ablation_delta_shot": 128,
+    "ablation_reference": "full",
+    "allow_random_vae": false,
+    "anonymize_manifest": true,
+    "baselines": [
+      "random",
+      "fixed",
+      "fixed_optimized",
+      "fisher_greedy_fast",
+      "bald_2step_fast"
+    ],
+    "compact_table_shots": [
+      128
+    ],
+    "config": "configs/scaling/n10.json",
+    "episodes": 100,
+    "eval_seeds": [
+      777
+    ],
+    "extra_agents": [
+      [
+        "dad_transformer",
+        "configs/scaling/dad_n10.json"
+      ]
+    ],
+    "m_evo": 5,
+    "main_comparisons": [
+      "dad_transformer",
+      "random",
+      "fixed",
+      "fixed_optimized",
+      "fisher_greedy_fast",
+      "bald_2step_fast"
+    ],
+    "n_qubits": 10,
+    "postprocess_mode": "main",
+    "primary_agent_name": "symqnet",
+    "run_root": "runs/scaling/n10",
+    "seeds": [
+      777,
+      778,
+      779
+    ],
+    "skip_baselines": false,
+    "started_at": 1779655669.1840634,
+    "task_bank": "runs/scaling/n10/task_bank.npz",
+    "task_counts": {
+      "baseline": 5,
+      "eval": 6,
+      "train": 6
+    },
+    "updates": 300,
+    "validation_episodes": 4,
+    "validation_interval": 100,
+    "validation_task_bank": "runs/scaling/n10/validation_task_bank.npz",
+    "with_crlb": false
+  },
+  "commands": [
+    [
+      "array-task",
+      "baseline",
+      "0"
+    ],
+    [
+      "array-task",
+      "baseline",
+      "1"
+    ],
+    [
+      "array-task",
+      "baseline",
+      "2"
+    ],
+    [
+      "array-task",
+      "baseline",
+      "3"
+    ],
+    [
+      "array-task",
+      "baseline",
+      "4"
+    ],
+    [
+      "array-task",
+      "train",
+      "0"
+    ],
+    [
+      "array-task",
+      "train",
+      "1"
+    ],
+    [
+      "array-task",
+      "train",
+      "2"
+    ],
+    [
+      "array-task",
+      "train",
+      "3"
+    ],
+    [
+      "array-task",
+      "train",
+      "4"
+    ],
+    [
+      "array-task",
+      "train",
+      "5"
+    ],
+    [
+      "array-task",
+      "eval",
+      "0"
+    ],
+    [
+      "array-task",
+      "eval",
+      "1"
+    ],
+    [
+      "array-task",
+      "eval",
+      "2"
+    ],
+    [
+      "array-task",
+      "eval",
+      "3"
+    ],
+    [
+      "array-task",
+      "eval",
+      "4"
+    ],
+    [
+      "array-task",
+      "eval",
+      "5"
+    ]
+  ],
+  "config": {
+    "device": "auto",
+    "env": {
+      "default_shots": 128,
+      "h_range": [
+        0.5,
+        1.5
+      ],
+      "hamiltonian": "tfim",
+      "horizon": 36,
+      "j_range": [
+        0.5,
+        1.5
+      ],
+      "m_evo": 5,
+      "mps_bond_dim": 32,
+      "mps_trotter_steps": 8,
+      "n_qubits": 10,
+      "noise_model": "readout_flip",
+      "noise_prob": 0.02,
+      "readout_p01": 0.02,
+      "readout_p10": 0.02,
+      "sample_shots_each_step": false,
+      "shots_set": [
+        128
+      ],
+      "simulator_backend": "mps_tebd",
+      "t1_us": 100.0,
+      "t2_us": 70.0,
+      "time_scale_us": 1.0
+    },
+    "eval": {
+      "baselines": [
+        "random",
+        "fixed_optimized",
+        "fisher_greedy_fast",
+        "bald_2step_fast"
+      ],
+      "bootstrap_samples": 1000,
+      "episodes": 300,
+      "seeds": [
+        777,
+        778,
+        779,
+        780,
+        781
+      ],
+      "shot_budgets": [
+        128
+      ]
+    },
+    "model": {
+      "belief_mode": "both",
+      "gnn_layers": 2,
+      "graph": "chain",
+      "history": 20,
+      "latent_dim": 16,
+      "temporal": "transformer",
+      "use_smc_feedback": true,
+      "use_vae": true,
+      "vae_checkpoint": "artifacts/vae_n10_l16.pt"
+    },
+    "output_dir": "runs/scaling/n10",
+    "ppo": {
+      "behavior_clone_checkpoint": "",
+      "clip_eps": 0.2,
+      "clip_grad": 0.5,
+      "entropy_coef": 0.02,
+      "gae_lambda": 0.95,
+      "gamma": 0.99,
+      "learning_rate": 0.0001,
+      "minibatches": 2,
+      "ppo_epochs": 2,
+      "reward_mode": "info_gain",
+      "rollout_steps": 64,
+      "updates": 2500,
+      "value_coef": 0.05
+    },
+    "seed": 777,
+    "smc": {
+      "ess_frac": 0.6,
+      "particles": 256,
+      "roughen_frac": 0.03,
+      "sim_chunk_size": 4
+    }
+  },
+  "config_hash": "64c890429b92",
+  "created_unix": 1779818746.3915677,
+  "elapsed_sec": 163077.2075047493,
+  "file_hashes": {
+    "artifacts/vae_n10_l16.pt": "d38f7c66c16a53dee07398c7ca5e4c1ef62f427b6588e696fbf884b4022309e3",
+    "configs/scaling/n10.json": "b7d449a8e93a53d3e27918e8ff4ff5faef3bff5a268f040d5a2272ba45bea723"
+  },
+  "git": {
+    "is_git_repo": false
+  },
+  "outputs": [
+    {
+      "columns": [
+        "method",
+        "shots",
+        "eval_seed",
+        "train_seed",
+        "checkpoint_path",
+        "checkpoint_config_hash",
+        "checkpoint_selection_metric",
+        "best_validation_mse",
+        "validation_task_bank_path",
+        "config_hash",
+        "device",
+        "hardware",
+        "train_wallclock_sec",
+        "reward_mode",
+        "behavior_clone_checkpoint",
+        "task_bank_path",
+        "policy_params",
+        "episodes",
+        "mse_mean",
+        "mse_mean_ci95_lo",
+        "mse_mean_ci95_hi",
+        "mse_median",
+        "mse_iqr",
+        "info_gain_mean",
+        "decision_ms_mean",
+        "decision_ms_p95",
+        "smc_update_ms_mean",
+        "smc_update_ms_p95",
+        "step_total_ms_mean",
+        "step_total_ms_p95",
+        "crlb_theta_mse_mean",
+        "mse_crlb_ratio_mean",
+        "per_seed_mse_mean"
+      ],
+      "exists": true,
+      "path": "runs/scaling/n10/shot_budget.csv",
+      "rows": 11
+    },
+    {
+      "columns": [
+        "method",
+        "shots",
+        "episode_idx",
+        "seed",
+        "eval_seed",
+        "task_id",
+        "final_mse",
+        "total_info_gain",
+        "decision_ms_mean",
+        "decision_ms_p95",
+        "smc_update_ms_mean",
+        "smc_update_ms_p95",
+        "step_total_ms_mean",
+        "step_total_ms_p95",
+        "crlb_theta_mse",
+        "mse_crlb_ratio",
+        "actions",
+        "true_theta",
+        "train_seed",
+        "checkpoint_path",
+        "checkpoint_config_hash",
+        "checkpoint_selection_metric",
+        "best_validation_mse",
+        "validation_task_bank_path",
+        "config_hash",
+        "device",
+        "hardware",
+        "train_wallclock_sec",
+        "reward_mode",
+        "behavior_clone_checkpoint",
+        "task_bank_path",
+        "policy_params"
+      ],
+      "exists": true,
+      "path": "runs/scaling/n10/episodes.csv",
+      "rows": 1100
+    },
+    {
+      "columns": [
+        "shots",
+        "reference",
+        "baseline",
+        "paired_tasks",
+        "wilcoxon_nonzero_pairs",
+        "reference_mse_mean",
+        "reference_mse_median",
+        "reference_mse_iqr",
+        "baseline_mse_mean",
+        "baseline_mse_median",
+        "baseline_mse_iqr",
+        "mse_delta_reference_minus_baseline",
+        "mse_ratio_reference_over_baseline",
+        "mse_ratio_ci95_lo",
+        "mse_ratio_ci95_hi",
+        "reference_decision_ms_mean",
+        "baseline_decision_ms_mean",
+        "latency_speedup_baseline_over_reference",
+        "latency_speedup_ci95_lo",
+        "latency_speedup_ci95_hi",
+        "wilcoxon_w",
+        "wilcoxon_p",
+        "wilcoxon_p_bh",
+        "wilcoxon_p_holm",
+        "cliffs_delta",
+        "rank_biserial"
+      ],
+      "exists": true,
+      "path": "runs/scaling/n10/paired_main.csv",
+      "rows": 6
+    },
+    {
+      "exists": true,
+      "path": "runs/scaling/n10/main_result_table.tex"
+    }
+  ],
+  "packages": {
+    "matplotlib": "3.10.6",
+    "numpy": "2.3.5",
+    "pytest": "",
+    "scipy": "1.16.2",
+    "torch": "2.7.1"
+  },
+  "platform": {
+    "cpu_count": 128,
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "release": "4.18.0-553.47.1.el8_10.x86_64",
+    "system": "Linux"
+  },
+  "python": "3.13.5 | packaged by conda-forge | (main, Jun 16 2025, 08:27:50) [GCC 13.3.0]",
+  "run_root": "runs/scaling/n10",
+  "task_bank": {
+    "count": 100,
+    "exists": true,
+    "h_range": [
+      0.5,
+      1.5
+    ],
+    "j_range": [
+      0.5,
+      1.5
+    ],
+    "n_qubits": 10,
+    "path": "runs/scaling/n10/task_bank.npz",
+    "seed": 777,
+    "sha256": "092346fa1b428e39f39158d643b901e77331cdcfd571522cc63dcc780f4a4641"
+  },
+  "torch": {
+    "cuda_available": false,
+    "mps_available": false
+  },
+  "vae_checkpoint": {
+    "exists": true,
+    "path": "artifacts/vae_n10_l16.pt",
+    "pretrain_metadata": {
+      "batch_size": 128,
+      "beta": 0.003,
+      "config_hash": "64c890429b92",
+      "config_path": "configs/scaling/n10.json",
+      "device": "cpu",
+      "epochs": 25,
+      "final_loss": 0.04879383424917857,
+      "hardware": "cpu:x86_64",
+      "learning_rate": 0.0003,
+      "loss_history": [
+        0.5689531304836273,
+        0.33024374389648437,
+        0.2936664571762085,
+        0.27253031969070435,
+        0.25845103454589846,
+        0.24329218713442485,
+        0.2135717134475708,
+        0.16555914362271626,
+        0.10990149074792863,
+        0.07798797897497813,
+        0.06651056019465129,
+        0.06301066096623739,
+        0.06098872484763463,
+        0.05952825476725896,
+        0.057367568085591,
+        0.056343088706334435,
+        0.055295967241128285,
+        0.05445483140150706,
+        0.05315723717212677,
+        0.05237850560744604,
+        0.05157403472065926,
+        0.0507932484348615,
+        0.049953560640414556,
+        0.04912055681149165,
+        0.04879383424917857
+      ],
+      "samples": 6000,
+      "seed": 777,
+      "train_wallclock_sec": 86.17241975199431
+    },
+    "sha256": "d38f7c66c16a53dee07398c7ca5e4c1ef62f427b6588e696fbf884b4022309e3",
+    "used": true
+  }
+}

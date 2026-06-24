@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" viewBox="0 0 980 620">
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#111827}
+.axis{stroke:#111827;stroke-width:1.2}
+.grid{stroke:#e5e7eb;stroke-width:1}
+.label{font-size:14px;fill:#374151}
+.tick{font-size:12px;fill:#4b5563}
+.title{font-size:22px;font-weight:700}
+.legend{font-size:13px;fill:#111827}
+</style>
+<rect x="0" y="0" width="980" height="620" fill="#ffffff"/>
+<text class="title" x="92" y="34">Shot budget vs final theta-MSE</text>
+<line class="grid" x1="92" y1="534.00" x2="720" y2="534.00"/>
+<text class="tick" x="82" y="538.00" text-anchor="end">0.0526</text>
+<line class="grid" x1="92" y1="438.40" x2="720" y2="438.40"/>
+<text class="tick" x="82" y="442.40" text-anchor="end">0.0688</text>
+<line class="grid" x1="92" y1="342.80" x2="720" y2="342.80"/>
+<text class="tick" x="82" y="346.80" text-anchor="end">0.085</text>
+<line class="grid" x1="92" y1="247.20" x2="720" y2="247.20"/>
+<text class="tick" x="82" y="251.20" text-anchor="end">0.101</text>
+<line class="grid" x1="92" y1="151.60" x2="720" y2="151.60"/>
+<text class="tick" x="82" y="155.60" text-anchor="end">0.117</text>
+<line class="grid" x1="92" y1="56.00" x2="720" y2="56.00"/>
+<text class="tick" x="82" y="60.00" text-anchor="end">0.134</text>
+<line class="grid" x1="406.00" y1="56" x2="406.00" y2="534"/>
+<text class="tick" x="406.00" y="558" text-anchor="middle">128</text>
+<line class="axis" x1="92" y1="534" x2="720" y2="534"/>
+<line class="axis" x1="92" y1="56" x2="92" y2="534"/>
+<text class="label" x="406.0" y="592" text-anchor="middle">Shots per measurement</text>
+<text class="label" transform="translate(24 295.0) rotate(-90)" text-anchor="middle">Median final theta-MSE</text>
+<polygon points="406.00,153.39 406.00,374.71" fill="#2563eb" opacity="0.13"/>
+<polyline points="406.00,264.05" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="406.00" cy="264.05" r="4" fill="#2563eb"/>
+<line x1="754" y1="80" x2="776" y2="80" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
+<text class="legend" x="786" y="84">random</text>
+<polygon points="406.00,350.87 406.00,501.03" fill="#dc2626" opacity="0.13"/>
+<polyline points="406.00,425.95" fill="none" stroke="#dc2626" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="406.00" cy="425.95" r="4" fill="#dc2626"/>
+<line x1="754" y1="104" x2="776" y2="104" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+<text class="legend" x="786" y="108">fixed</text>
+<polygon points="406.00,165.07 406.00,426.16" fill="#16a34a" opacity="0.13"/>
+<polyline points="406.00,295.62" fill="none" stroke="#16a34a" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="406.00" cy="295.62" r="4" fill="#16a34a"/>
+<line x1="754" y1="128" x2="776" y2="128" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text class="legend" x="786" y="132">fisher greedy fast</text>
+<polygon points="406.00,88.97 406.00,400.16" fill="#9333ea" opacity="0.13"/>
+<polyline points="406.00,244.56" fill="none" stroke="#9333ea" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="406.00" cy="244.56" r="4" fill="#9333ea"/>
+<line x1="754" y1="152" x2="776" y2="152" stroke="#9333ea" stroke-width="3" stroke-linecap="round"/>
+<text class="legend" x="786" y="156">bald 2step fast</text>
+<polygon points="406.00,312.41 406.00,430.01" fill="#ea580c" opacity="0.13"/>
+<polyline points="406.00,371.21" fill="none" stroke="#ea580c" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="406.00" cy="371.21" r="4" fill="#ea580c"/>
+<line x1="754" y1="176" x2="776" y2="176" stroke="#ea580c" stroke-width="3" stroke-linecap="round"/>
+<text class="legend" x="786" y="180">symqnet</text>
+<polygon points="406.00,267.77 406.00,402.80" fill="#0891b2" opacity="0.13"/>
+<polyline points="406.00,335.28" fill="none" stroke="#0891b2" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="406.00" cy="335.28" r="4" fill="#0891b2"/>
+<line x1="754" y1="200" x2="776" y2="200" stroke="#0891b2" stroke-width="3" stroke-linecap="round"/>
+<text class="legend" x="786" y="204">dad transformer</text>
+</svg>

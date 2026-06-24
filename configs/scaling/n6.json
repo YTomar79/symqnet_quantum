@@ -1,0 +1,21 @@
+{
+  "extends": "../default.json",
+  "output_dir": "runs/scaling/n6",
+  "env": {
+    "n_qubits": 6,
+    "m_evo": 5,
+    "horizon": 36,
+    "default_shots": 128,
+    "shots_set": [128]
+  },
+  "model": {
+    "vae_checkpoint": "artifacts/vae_n6_l16.pt"
+  },
+  "smc": {
+    "sim_chunk_size": 2
+  },
+  "eval": {
+    "episodes": 300,
+    "shot_budgets": [128]
+  }
+}

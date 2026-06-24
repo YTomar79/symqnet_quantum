@@ -1,0 +1,69 @@
+{
+  "seed": 777,
+  "device": "auto",
+  "output_dir": "runs/ablations_smoke/belief_cov_only",
+  "env": {
+    "n_qubits": 3,
+    "m_evo": 2,
+    "horizon": 4,
+    "noise_prob": 0.02,
+    "depol_prob": 0.0,
+    "default_shots": 16,
+    "shots_set": [
+      16
+    ],
+    "sample_shots_each_step": false,
+    "j_range": [
+      0.5,
+      1.5
+    ],
+    "h_range": [
+      0.5,
+      1.5
+    ]
+  },
+  "model": {
+    "latent_dim": 8,
+    "use_vae": true,
+    "history": 4,
+    "gnn_layers": 1,
+    "temporal": "transformer",
+    "graph": "chain",
+    "use_smc_feedback": true,
+    "belief_mode": "cov",
+    "vae_checkpoint": "artifacts/vae_n3_l8.pt"
+  },
+  "smc": {
+    "particles": 8,
+    "ess_frac": 0.6,
+    "roughen_frac": 0.03,
+    "sim_chunk_size": 2
+  },
+  "ppo": {
+    "updates": 1,
+    "rollout_steps": 4,
+    "ppo_epochs": 1,
+    "minibatches": 1,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "learning_rate": 0.0001,
+    "entropy_coef": 0.02,
+    "value_coef": 0.05,
+    "clip_eps": 0.2,
+    "clip_grad": 0.5
+  },
+  "eval": {
+    "episodes": 1,
+    "seeds": [
+      777
+    ],
+    "shot_budgets": [
+      16
+    ],
+    "baselines": [
+      "random",
+      "fixed"
+    ],
+    "bootstrap_samples": 100
+  }
+}

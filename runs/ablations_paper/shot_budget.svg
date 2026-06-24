@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" viewBox="0 0 980 620">
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#111827}
+.axis{stroke:#111827;stroke-width:1.2}
+.grid{stroke:#e5e7eb;stroke-width:1}
+.label{font-size:14px;fill:#374151}
+.tick{font-size:12px;fill:#4b5563}
+.title{font-size:22px;font-weight:700}
+.legend{font-size:13px;fill:#111827}
+</style>
+<rect x="0" y="0" width="980" height="620" fill="#ffffff"/>
+<text class="title" x="92" y="34">SymQNet ablations: shot budget vs final theta-MSE</text>
+<line class="grid" x1="92" y1="534.00" x2="720" y2="534.00"/>
+<text class="tick" x="82" y="538.00" text-anchor="end">0.0236</text>
+<line class="grid" x1="92" y1="438.40" x2="720" y2="438.40"/>
+<text class="tick" x="82" y="442.40" text-anchor="end">0.0399</text>
+<line class="grid" x1="92" y1="342.80" x2="720" y2="342.80"/>
+<text class="tick" x="82" y="346.80" text-anchor="end">0.0562</text>
+<line class="grid" x1="92" y1="247.20" x2="720" y2="247.20"/>
+<text class="tick" x="82" y="251.20" text-anchor="end">0.0725</text>
+<line class="grid" x1="92" y1="151.60" x2="720" y2="151.60"/>
+<text class="tick" x="82" y="155.60" text-anchor="end">0.0888</text>
+<line class="grid" x1="92" y1="56.00" x2="720" y2="56.00"/>
+<text class="tick" x="82" y="60.00" text-anchor="end">0.105</text>
+<line class="grid" x1="92.00" y1="56" x2="92.00" y2="534"/>
+<text class="tick" x="92.00" y="558" text-anchor="middle">32</text>
+<line class="grid" x1="249.00" y1="56" x2="249.00" y2="534"/>
+<text class="tick" x="249.00" y="558" text-anchor="middle">64</text>
+<line class="grid" x1="406.00" y1="56" x2="406.00" y2="534"/>
+<text class="tick" x="406.00" y="558" text-anchor="middle">128</text>
+<line class="grid" x1="563.00" y1="56" x2="563.00" y2="534"/>
+<text class="tick" x="563.00" y="558" text-anchor="middle">256</text>
+<line class="grid" x1="720.00" y1="56" x2="720.00" y2="534"/>
+<text class="tick" x="720.00" y="558" text-anchor="middle">512</text>
+<line class="axis" x1="92" y1="534" x2="720" y2="534"/>
+<line class="axis" x1="92" y1="56" x2="92" y2="534"/>
+<text class="label" x="406.0" y="592" text-anchor="middle">Shots per measurement</text>
+<text class="label" transform="translate(24 295.0) rotate(-90)" text-anchor="middle">Median final theta-MSE</text>
+<polygon points="92.00,169.42 249.00,170.09 406.00,155.71 563.00,148.64 720.00,128.01 720.00,386.97 563.00,392.60 406.00,384.96 249.00,380.12 92.00,375.73" fill="#2563eb" opacity="0.13"/>
+<polyline points="92.00,272.58 249.00,275.10 406.00,270.33 563.00,270.62 720.00,257.49" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="92.00" cy="272.58" r="4" fill="#2563eb"/>
+<circle cx="249.00" cy="275.10" r="4" fill="#2563eb"/>
+<circle cx="406.00" cy="270.33" r="4" fill="#2563eb"/>
+<circle cx="563.00" cy="270.62" r="4" fill="#2563eb"/>
+<circle cx="720.00" cy="257.49" r="4" fill="#2563eb"/>
+<line x1="754" y1="80" x2="776" y2="80" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
+<text class="legend" x="786" y="84">full</text>
+<polygon points="92.00,167.68 249.00,159.05 406.00,149.41 563.00,136.68 720.00,102.93 720.00,399.87 563.00,399.98 406.00,399.29 249.00,396.99 92.00,391.57" fill="#dc2626" opacity="0.13"/>
+<polyline points="92.00,279.63 249.00,278.02 406.00,274.35 563.00,268.33 720.00,251.40" fill="none" stroke="#dc2626" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="92.00" cy="279.63" r="4" fill="#dc2626"/>
+<circle cx="249.00" cy="278.02" r="4" fill="#dc2626"/>
+<circle cx="406.00" cy="274.35" r="4" fill="#dc2626"/>
+<circle cx="563.00" cy="268.33" r="4" fill="#dc2626"/>
+<circle cx="720.00" cy="251.40" r="4" fill="#dc2626"/>
+<line x1="754" y1="104" x2="776" y2="104" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+<text class="legend" x="786" y="108">no vae</text>
+<polygon points="92.00,234.32 249.00,230.99 406.00,212.91 563.00,201.05 720.00,167.08 720.00,501.03 563.00,497.66 406.00,491.80 249.00,482.88 92.00,468.93" fill="#16a34a" opacity="0.13"/>
+<polyline points="92.00,351.63 249.00,356.93 406.00,352.36 563.00,349.36 720.00,334.06" fill="none" stroke="#16a34a" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="92.00" cy="351.63" r="4" fill="#16a34a"/>
+<circle cx="249.00" cy="356.93" r="4" fill="#16a34a"/>
+<circle cx="406.00" cy="352.36" r="4" fill="#16a34a"/>
+<circle cx="563.00" cy="349.36" r="4" fill="#16a34a"/>
+<circle cx="720.00" cy="334.06" r="4" fill="#16a34a"/>
+<line x1="754" y1="128" x2="776" y2="128" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<text class="legend" x="786" y="132">no smc feedback</text>
+<polygon points="92.00,156.63 249.00,156.32 406.00,143.32 563.00,125.20 720.00,108.26 720.00,373.59 563.00,372.71 406.00,377.43 249.00,374.57 92.00,370.33" fill="#9333ea" opacity="0.13"/>
+<polyline points="92.00,263.48 249.00,265.44 406.00,260.38 563.00,248.96 720.00,240.92" fill="none" stroke="#9333ea" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="92.00" cy="263.48" r="4" fill="#9333ea"/>
+<circle cx="249.00" cy="265.44" r="4" fill="#9333ea"/>
+<circle cx="406.00" cy="260.38" r="4" fill="#9333ea"/>
+<circle cx="563.00" cy="248.96" r="4" fill="#9333ea"/>
+<circle cx="720.00" cy="240.92" r="4" fill="#9333ea"/>
+<line x1="754" y1="152" x2="776" y2="152" stroke="#9333ea" stroke-width="3" stroke-linecap="round"/>
+<text class="legend" x="786" y="156">no graph</text>
+<polygon points="92.00,172.59 249.00,180.20 406.00,155.92 563.00,141.49 720.00,88.97 720.00,397.79 563.00,402.97 406.00,402.86 249.00,406.45 92.00,397.41" fill="#ea580c" opacity="0.13"/>
+<polyline points="92.00,285.00 249.00,293.32 406.00,279.39 563.00,272.23 720.00,243.38" fill="none" stroke="#ea580c" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="92.00" cy="285.00" r="4" fill="#ea580c"/>
+<circle cx="249.00" cy="293.32" r="4" fill="#ea580c"/>
+<circle cx="406.00" cy="279.39" r="4" fill="#ea580c"/>
+<circle cx="563.00" cy="272.23" r="4" fill="#ea580c"/>
+<circle cx="720.00" cy="243.38" r="4" fill="#ea580c"/>
+<line x1="754" y1="176" x2="776" y2="176" stroke="#ea580c" stroke-width="3" stroke-linecap="round"/>
+<text class="legend" x="786" y="180">mlp only</text>
+</svg>

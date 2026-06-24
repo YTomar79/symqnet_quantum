@@ -1,0 +1,17 @@
+{
+  "episode_rows": 12000,
+  "errors": [],
+  "methods": [
+    "bald_2step_fast",
+    "fisher_greedy_fast",
+    "fixed",
+    "fixed_optimized",
+    "random",
+    "symqnet"
+  ],
+  "ok": true,
+  "shots": [
+    128
+  ],
+  "summary_rows": 8
+}

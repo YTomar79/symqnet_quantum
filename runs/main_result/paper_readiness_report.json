@@ -1,0 +1,11 @@
+{
+  "errors": [
+    "reward/objective symqnet shot=64 pearson_info_gain_vs_mse=-0.03548 is not directionally useful; expected <= -0.05 so higher information gain predicts lower final MSE",
+    "reward/objective symqnet shot=128 pearson_info_gain_vs_mse=0.01876 is not directionally useful; expected <= -0.05 so higher information gain predicts lower final MSE",
+    "reward/objective symqnet shot=256 pearson_info_gain_vs_mse=0.02514 is not directionally useful; expected <= -0.05 so higher information gain predicts lower final MSE",
+    "reward/objective symqnet shot=256 spearman_info_gain_vs_mse=-0.04825 is not directionally useful; expected <= -0.05 so higher information gain predicts lower final MSE",
+    "reward/objective symqnet shot=512 pearson_info_gain_vs_mse=0.06893 is not directionally useful; expected <= -0.05 so higher information gain predicts lower final MSE",
+    "reward/objective symqnet shot=512 spearman_info_gain_vs_mse=0.006101 is not directionally useful; expected <= -0.05 so higher information gain predicts lower final MSE"
+  ],
+  "ok": false
+}

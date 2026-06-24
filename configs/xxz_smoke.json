@@ -1,0 +1,10 @@
+{
+  "extends": "smoke.json",
+  "output_dir": "runs/xxz_smoke",
+  "env": {
+    "hamiltonian": "xxz"
+  },
+  "model": {
+    "use_vae": false
+  }
+}

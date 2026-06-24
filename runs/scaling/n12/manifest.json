@@ -1,0 +1,443 @@
+{
+  "args": {
+    "ablation_baselines": [
+      "no_vae",
+      "no_smc_feedback",
+      "no_graph",
+      "mlp_only"
+    ],
+    "ablation_delta_shot": 128,
+    "ablation_reference": "full",
+    "allow_random_vae": false,
+    "anonymize_manifest": false,
+    "baselines": [
+      "random",
+      "fixed",
+      "fisher_greedy_fast",
+      "bald_2step_fast"
+    ],
+    "compact_table_shots": [
+      128
+    ],
+    "config": "configs/scaling/n12.json",
+    "episodes": 100,
+    "eval_seeds": [
+      777
+    ],
+    "extra_agents": [
+      [
+        "dad_transformer",
+        "configs/scaling/dad_n12.json"
+      ]
+    ],
+    "m_evo": 5,
+    "main_comparisons": [
+      "dad_transformer",
+      "random",
+      "fixed",
+      "fisher_greedy_fast",
+      "bald_2step_fast"
+    ],
+    "n_qubits": 12,
+    "postprocess_mode": "main",
+    "primary_agent_name": "symqnet",
+    "run_root": "runs/scaling/n12",
+    "seeds": [
+      777,
+      778,
+      779
+    ],
+    "skip_baselines": false,
+    "started_at": 1779718917.5882635,
+    "task_bank": "runs/scaling/n12/task_bank.npz",
+    "task_counts": {
+      "baseline": 4,
+      "eval": 6,
+      "train": 6
+    },
+    "updates": 300,
+    "validation_episodes": 4,
+    "validation_interval": 100,
+    "validation_task_bank": "runs/scaling/n12/validation_task_bank.npz",
+    "with_crlb": false
+  },
+  "commands": [
+    [
+      "array-task",
+      "baseline",
+      "0"
+    ],
+    [
+      "array-task",
+      "baseline",
+      "1"
+    ],
+    [
+      "array-task",
+      "baseline",
+      "2"
+    ],
+    [
+      "array-task",
+      "baseline",
+      "3"
+    ],
+    [
+      "array-task",
+      "train",
+      "0"
+    ],
+    [
+      "array-task",
+      "train",
+      "1"
+    ],
+    [
+      "array-task",
+      "train",
+      "2"
+    ],
+    [
+      "array-task",
+      "train",
+      "3"
+    ],
+    [
+      "array-task",
+      "train",
+      "4"
+    ],
+    [
+      "array-task",
+      "train",
+      "5"
+    ],
+    [
+      "array-task",
+      "eval",
+      "0"
+    ],
+    [
+      "array-task",
+      "eval",
+      "1"
+    ],
+    [
+      "array-task",
+      "eval",
+      "2"
+    ],
+    [
+      "array-task",
+      "eval",
+      "3"
+    ],
+    [
+      "array-task",
+      "eval",
+      "4"
+    ],
+    [
+      "array-task",
+      "eval",
+      "5"
+    ]
+  ],
+  "config": {
+    "device": "auto",
+    "env": {
+      "default_shots": 128,
+      "h_range": [
+        0.5,
+        1.5
+      ],
+      "hamiltonian": "tfim",
+      "horizon": 36,
+      "j_range": [
+        0.5,
+        1.5
+      ],
+      "m_evo": 5,
+      "mps_bond_dim": 32,
+      "mps_trotter_steps": 8,
+      "n_qubits": 12,
+      "noise_model": "readout_flip",
+      "noise_prob": 0.02,
+      "readout_p01": 0.02,
+      "readout_p10": 0.02,
+      "sample_shots_each_step": false,
+      "shots_set": [
+        128
+      ],
+      "simulator_backend": "mps_tebd",
+      "t1_us": 100.0,
+      "t2_us": 70.0,
+      "time_scale_us": 1.0
+    },
+    "eval": {
+      "baselines": [
+        "random",
+        "fixed_optimized",
+        "fisher_greedy_fast",
+        "bald_2step_fast"
+      ],
+      "bootstrap_samples": 1000,
+      "episodes": 300,
+      "seeds": [
+        777,
+        778,
+        779,
+        780,
+        781
+      ],
+      "shot_budgets": [
+        128
+      ]
+    },
+    "model": {
+      "belief_mode": "both",
+      "gnn_layers": 2,
+      "graph": "chain",
+      "history": 20,
+      "latent_dim": 16,
+      "temporal": "transformer",
+      "use_smc_feedback": true,
+      "use_vae": true,
+      "vae_checkpoint": "artifacts/vae_n12_l16.pt"
+    },
+    "output_dir": "runs/scaling/n12",
+    "ppo": {
+      "behavior_clone_checkpoint": "",
+      "clip_eps": 0.2,
+      "clip_grad": 0.5,
+      "entropy_coef": 0.02,
+      "gae_lambda": 0.95,
+      "gamma": 0.99,
+      "learning_rate": 0.0001,
+      "minibatches": 2,
+      "ppo_epochs": 2,
+      "reward_mode": "info_gain",
+      "rollout_steps": 64,
+      "updates": 2500,
+      "value_coef": 0.05
+    },
+    "seed": 777,
+    "smc": {
+      "ess_frac": 0.6,
+      "particles": 256,
+      "roughen_frac": 0.03,
+      "sim_chunk_size": 4
+    }
+  },
+  "config_hash": "70152d4506f6",
+  "created_unix": 1779899660.285498,
+  "elapsed_sec": 180742.697234869,
+  "file_hashes": {
+    "artifacts/vae_n12_l16.pt": "c738f4ccf32f389ee0a5a481e4db91f452d640d8e1438a5867025ef4f5dc2d66",
+    "configs/scaling/n12.json": "802d1b5286ebe095012fdc850347081a84fc97500d6ba7e2b64deb2d41444068"
+  },
+  "git": {
+    "is_git_repo": false
+  },
+  "outputs": [
+    {
+      "columns": [
+        "method",
+        "shots",
+        "eval_seed",
+        "train_seed",
+        "checkpoint_path",
+        "checkpoint_config_hash",
+        "checkpoint_selection_metric",
+        "best_validation_mse",
+        "validation_task_bank_path",
+        "config_hash",
+        "device",
+        "hardware",
+        "train_wallclock_sec",
+        "reward_mode",
+        "behavior_clone_checkpoint",
+        "task_bank_path",
+        "policy_params",
+        "episodes",
+        "mse_mean",
+        "mse_mean_ci95_lo",
+        "mse_mean_ci95_hi",
+        "mse_median",
+        "mse_iqr",
+        "info_gain_mean",
+        "decision_ms_mean",
+        "decision_ms_p95",
+        "smc_update_ms_mean",
+        "smc_update_ms_p95",
+        "step_total_ms_mean",
+        "step_total_ms_p95",
+        "crlb_theta_mse_mean",
+        "mse_crlb_ratio_mean",
+        "per_seed_mse_mean"
+      ],
+      "exists": true,
+      "path": "runs/scaling/n12/shot_budget.csv",
+      "rows": 10
+    },
+    {
+      "columns": [
+        "method",
+        "shots",
+        "episode_idx",
+        "seed",
+        "eval_seed",
+        "task_id",
+        "final_mse",
+        "total_info_gain",
+        "decision_ms_mean",
+        "decision_ms_p95",
+        "smc_update_ms_mean",
+        "smc_update_ms_p95",
+        "step_total_ms_mean",
+        "step_total_ms_p95",
+        "crlb_theta_mse",
+        "mse_crlb_ratio",
+        "actions",
+        "true_theta",
+        "train_seed",
+        "checkpoint_path",
+        "checkpoint_config_hash",
+        "checkpoint_selection_metric",
+        "best_validation_mse",
+        "validation_task_bank_path",
+        "config_hash",
+        "device",
+        "hardware",
+        "train_wallclock_sec",
+        "reward_mode",
+        "behavior_clone_checkpoint",
+        "task_bank_path",
+        "policy_params"
+      ],
+      "exists": true,
+      "path": "runs/scaling/n12/episodes.csv",
+      "rows": 1000
+    },
+    {
+      "columns": [
+        "shots",
+        "reference",
+        "baseline",
+        "paired_tasks",
+        "wilcoxon_nonzero_pairs",
+        "reference_mse_mean",
+        "reference_mse_median",
+        "reference_mse_iqr",
+        "baseline_mse_mean",
+        "baseline_mse_median",
+        "baseline_mse_iqr",
+        "mse_delta_reference_minus_baseline",
+        "mse_ratio_reference_over_baseline",
+        "mse_ratio_ci95_lo",
+        "mse_ratio_ci95_hi",
+        "reference_decision_ms_mean",
+        "baseline_decision_ms_mean",
+        "latency_speedup_baseline_over_reference",
+        "latency_speedup_ci95_lo",
+        "latency_speedup_ci95_hi",
+        "wilcoxon_w",
+        "wilcoxon_p",
+        "wilcoxon_p_bh",
+        "wilcoxon_p_holm",
+        "cliffs_delta",
+        "rank_biserial"
+      ],
+      "exists": true,
+      "path": "runs/scaling/n12/paired_main.csv",
+      "rows": 5
+    },
+    {
+      "exists": true,
+      "path": "runs/scaling/n12/main_result_table.tex"
+    }
+  ],
+  "packages": {
+    "matplotlib": "3.10.6",
+    "numpy": "2.3.5",
+    "pytest": "",
+    "scipy": "1.16.2",
+    "torch": "2.7.1"
+  },
+  "platform": {
+    "cpu_count": 128,
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "release": "4.18.0-553.47.1.el8_10.x86_64",
+    "system": "Linux"
+  },
+  "python": "3.13.5 | packaged by conda-forge | (main, Jun 16 2025, 08:27:50) [GCC 13.3.0]",
+  "run_root": "runs/scaling/n12",
+  "task_bank": {
+    "count": 100,
+    "exists": true,
+    "h_range": [
+      0.5,
+      1.5
+    ],
+    "j_range": [
+      0.5,
+      1.5
+    ],
+    "n_qubits": 12,
+    "path": "runs/scaling/n12/task_bank.npz",
+    "seed": 777,
+    "sha256": "2096da3f986b76e365cd23cb4547679ac44e7444dea8ffb8680ce1618e0a6d82"
+  },
+  "torch": {
+    "cuda_available": false,
+    "mps_available": false
+  },
+  "vae_checkpoint": {
+    "exists": true,
+    "path": "artifacts/vae_n12_l16.pt",
+    "pretrain_metadata": {
+      "batch_size": 128,
+      "beta": 0.003,
+      "config_hash": "70152d4506f6",
+      "config_path": "configs/scaling/n12.json",
+      "device": "cpu",
+      "epochs": 25,
+      "final_loss": 0.05106193914016088,
+      "hardware": "cpu:x86_64",
+      "learning_rate": 0.0003,
+      "loss_history": [
+        0.5689180247783661,
+        0.33630547467867533,
+        0.29628171745936077,
+        0.2751082449754079,
+        0.26231009046236675,
+        0.25227631302674614,
+        0.23461477343241374,
+        0.19676569724082946,
+        0.1443469419280688,
+        0.095371111313502,
+        0.07287069497505824,
+        0.06581922187407811,
+        0.06322448458274206,
+        0.061609486778577166,
+        0.06004557092984517,
+        0.05888033678134282,
+        0.05751904582977295,
+        0.05637808233499527,
+        0.055506367981433866,
+        0.05445014715194702,
+        0.0539211605489254,
+        0.05312110410133997,
+        0.05230531148115794,
+        0.051410578260819115,
+        0.05106193914016088
+      ],
+      "samples": 6000,
+      "seed": 777,
+      "train_wallclock_sec": 59.96027638297528
+    },
+    "sha256": "c738f4ccf32f389ee0a5a481e4db91f452d640d8e1438a5867025ef4f5dc2d66",
+    "used": true
+  }
+}

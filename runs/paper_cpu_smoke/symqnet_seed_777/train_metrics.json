@@ -1,0 +1,8 @@
+{
+  "train_seed": 777,
+  "config_hash": "a068695e4eed",
+  "device": "cpu",
+  "hardware": "cpu:arm64",
+  "best_mse": 0.057242196053266525,
+  "train_wallclock_sec": 0.6682995000155643
+}

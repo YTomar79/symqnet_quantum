@@ -1,0 +1,10 @@
+{
+  "extends": "default.json",
+  "output_dir": "runs/reward_mse_delta",
+  "ppo": {
+    "reward_mode": "oracle_mse_delta"
+  },
+  "eval": {
+    "shot_budgets": [128]
+  }
+}

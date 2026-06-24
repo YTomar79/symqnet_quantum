@@ -1,0 +1,8 @@
+{
+  "extends": "../smoke.json",
+  "output_dir": "runs/ablations_smoke/no_vae",
+  "model": {
+    "temporal": "transformer",
+    "use_vae": false
+  }
+}

@@ -1,0 +1,11 @@
+\begin{tabular}{llrrrr}
+\toprule
+Shots & Baseline & MSE ratio [95\% CI] & Speedup [95\% CI] & $\Delta$MSE & $p_{\mathrm{BH}}$ \\
+\midrule
+128 & bald\_2step\_fast & 1.37 [1.33, 1.42] & 43.4 [43.2, 43.5] & 0.0198 & 5.15e-81 \\
+128 & fisher\_greedy\_fast & 1.95 [1.88, 2.03] & 69.8 [69.6, 70] & 0.0357 & 4.28e-183 \\
+128 & fixed & 1.73 [1.68, 1.79] & 0.000844 [0.000837, 0.000851] & 0.031 & 6.16e-179 \\
+128 & fixed\_optimized & 2.55 [2.44, 2.66] & 0.0146 [0.00346, 0.0286] & 0.0445 & 2.19e-219 \\
+128 & random & 1.74 [1.68, 1.81] & 0.0111 [0.0109, 0.0113] & 0.0311 & 2.09e-157 \\
+\bottomrule
+\end{tabular}

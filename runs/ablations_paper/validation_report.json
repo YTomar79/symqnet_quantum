@@ -1,0 +1,20 @@
+{
+  "episode_rows": 112500,
+  "errors": [],
+  "methods": [
+    "full",
+    "mlp_only",
+    "no_graph",
+    "no_smc_feedback",
+    "no_vae"
+  ],
+  "ok": true,
+  "shots": [
+    32,
+    64,
+    128,
+    256,
+    512
+  ],
+  "summary_rows": 75
+}

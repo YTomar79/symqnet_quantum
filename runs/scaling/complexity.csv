@@ -1,0 +1,5 @@
+n_qubits,m_evo,actions,hilbert_dim,smc_particles,top_k,predictive_samples,smc_predict_units,bald_2step_relative_units,symqnet_chain_relative_units,symqnet_transformer_relative_units
+4,5,60,16,256,10,5,16384,50135040,4,16
+5,5,75,32,256,10,5,40960,156672000,5,25
+6,5,90,64,256,10,5,98304,451215360,6,36
+7,5,105,128,256,10,5,229376,1228308480,7,49

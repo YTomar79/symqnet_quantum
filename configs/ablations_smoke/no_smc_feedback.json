@@ -1,0 +1,8 @@
+{
+  "extends": "../smoke.json",
+  "output_dir": "runs/ablations_smoke/no_smc_feedback",
+  "model": {
+    "temporal": "transformer",
+    "use_smc_feedback": false
+  }
+}

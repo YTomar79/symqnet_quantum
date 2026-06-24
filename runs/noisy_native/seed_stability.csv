@@ -1,0 +1,2 @@
+shots,method,train_seeds,seed_mean_mse_mean,seed_mean_mse_std,seed_mean_mse_min,seed_mean_mse_max,seed_mean_mse_cv
+128,symqnet,3,0.0735011506287588,0.0020258791092095814,0.07167347198911012,0.07567945792277654,0.02756254959112049

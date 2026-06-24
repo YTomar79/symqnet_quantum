@@ -1,0 +1,21 @@
+{
+  "extends": "../default.json",
+  "output_dir": "runs/scaling/n8",
+  "env": {
+    "n_qubits": 8,
+    "m_evo": 5,
+    "horizon": 36,
+    "default_shots": 128,
+    "shots_set": [128],
+    "simulator_backend": "mps_tebd",
+    "mps_bond_dim": 32,
+    "mps_trotter_steps": 8
+  },
+  "model": {
+    "vae_checkpoint": "artifacts/vae_n8_l16.pt"
+  },
+  "eval": {
+    "episodes": 300,
+    "shot_budgets": [128]
+  }
+}

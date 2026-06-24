@@ -1,0 +1,88 @@
+{
+  "bond_dim": 32,
+  "m_evo": 5,
+  "max_mean_abs_error": 0.0024094246327877045,
+  "mean_abs_error": 0.0018280167229628812,
+  "n_values": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "rows": [
+    {
+      "max_abs_error": 0.008564114570617676,
+      "mean_abs_error": 0.0014130688505247235,
+      "n_qubits": 4,
+      "task_idx": 0
+    },
+    {
+      "max_abs_error": 0.012040913105010986,
+      "mean_abs_error": 0.002027984708547592,
+      "n_qubits": 4,
+      "task_idx": 1
+    },
+    {
+      "max_abs_error": 0.009175855666399002,
+      "mean_abs_error": 0.0016612611943855882,
+      "n_qubits": 4,
+      "task_idx": 2
+    },
+    {
+      "max_abs_error": 0.008356679230928421,
+      "mean_abs_error": 0.00140826974529773,
+      "n_qubits": 5,
+      "task_idx": 0
+    },
+    {
+      "max_abs_error": 0.013946741819381714,
+      "mean_abs_error": 0.0019906198140233755,
+      "n_qubits": 5,
+      "task_idx": 1
+    },
+    {
+      "max_abs_error": 0.008118867874145508,
+      "mean_abs_error": 0.001087260665372014,
+      "n_qubits": 5,
+      "task_idx": 2
+    },
+    {
+      "max_abs_error": 0.010646536946296692,
+      "mean_abs_error": 0.001975360093638301,
+      "n_qubits": 6,
+      "task_idx": 0
+    },
+    {
+      "max_abs_error": 0.010052621364593506,
+      "mean_abs_error": 0.0013894233852624893,
+      "n_qubits": 6,
+      "task_idx": 1
+    },
+    {
+      "max_abs_error": 0.01496899127960205,
+      "mean_abs_error": 0.0024094246327877045,
+      "n_qubits": 6,
+      "task_idx": 2
+    },
+    {
+      "max_abs_error": 0.013673454523086548,
+      "mean_abs_error": 0.0022392557002604008,
+      "n_qubits": 7,
+      "task_idx": 0
+    },
+    {
+      "max_abs_error": 0.011329233646392822,
+      "mean_abs_error": 0.002061047125607729,
+      "n_qubits": 7,
+      "task_idx": 1
+    },
+    {
+      "max_abs_error": 0.01730954647064209,
+      "mean_abs_error": 0.0022732247598469257,
+      "n_qubits": 7,
+      "task_idx": 2
+    }
+  ],
+  "tasks": 3,
+  "trotter_steps": 8
+}

@@ -1,0 +1,14 @@
+{
+  "episode_rows": 3,
+  "errors": [],
+  "methods": [
+    "fixed",
+    "random",
+    "symqnet"
+  ],
+  "ok": true,
+  "shots": [
+    16
+  ],
+  "summary_rows": 3
+}

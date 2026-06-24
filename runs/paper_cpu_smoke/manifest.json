@@ -1,0 +1,371 @@
+{
+  "args": {
+    "config": "configs/smoke.json",
+    "dry_run": false,
+    "episodes": 1,
+    "jobs": 1,
+    "main_comparisons": [
+      "fixed",
+      "random"
+    ],
+    "run_root": "runs/paper_cpu_smoke",
+    "seeds": [
+      777
+    ],
+    "updates": 1,
+    "with_crlb": false
+  },
+  "commands": [
+    [
+      "/Users/btf/Desktop/SymQNet/.venv/bin/python",
+      "-m",
+      "symqnet.eval",
+      "--config",
+      "configs/smoke.json",
+      "--episodes",
+      "1",
+      "--out",
+      "runs/paper_cpu_smoke/baselines.csv",
+      "--episodes-out",
+      "runs/paper_cpu_smoke/baselines_episodes.csv",
+      "--task-bank",
+      "runs/paper_cpu_smoke/task_bank.npz"
+    ],
+    [
+      "/Users/btf/Desktop/SymQNet/.venv/bin/python",
+      "-m",
+      "symqnet.train_ppo",
+      "--config",
+      "configs/smoke.json",
+      "--updates",
+      "1",
+      "--seed",
+      "777",
+      "--output-dir",
+      "runs/paper_cpu_smoke/symqnet_seed_777"
+    ],
+    [
+      "/Users/btf/Desktop/SymQNet/.venv/bin/python",
+      "-m",
+      "symqnet.eval",
+      "--config",
+      "configs/smoke.json",
+      "--episodes",
+      "1",
+      "--agent-checkpoint",
+      "runs/paper_cpu_smoke/symqnet_seed_777/best_agent.pt",
+      "--agent-name",
+      "symqnet",
+      "--train-seed",
+      "777",
+      "--skip-baselines",
+      "--out",
+      "runs/paper_cpu_smoke/symqnet_seed_777/eval.csv",
+      "--episodes-out",
+      "runs/paper_cpu_smoke/symqnet_seed_777/episodes.csv",
+      "--task-bank",
+      "runs/paper_cpu_smoke/task_bank.npz"
+    ],
+    [
+      "/Users/btf/Desktop/SymQNet/.venv/bin/python",
+      "-m",
+      "symqnet.plot_shot_budget",
+      "--csv",
+      "runs/paper_cpu_smoke/shot_budget.csv",
+      "--out",
+      "runs/paper_cpu_smoke/shot_budget.svg"
+    ],
+    [
+      "/Users/btf/Desktop/SymQNet/.venv/bin/python",
+      "-m",
+      "symqnet.analysis.tables",
+      "--csv",
+      "runs/paper_cpu_smoke/shot_budget.csv",
+      "--out",
+      "runs/paper_cpu_smoke/wallclock_mse_crlb_table.tex"
+    ],
+    [
+      "/Users/btf/Desktop/SymQNet/.venv/bin/python",
+      "-m",
+      "symqnet.analysis.reward_scatter",
+      "--episodes-csv",
+      "runs/paper_cpu_smoke/episodes.csv",
+      "--out",
+      "runs/paper_cpu_smoke/reward_vs_objective.svg"
+    ],
+    [
+      "/Users/btf/Desktop/SymQNet/.venv/bin/python",
+      "-m",
+      "symqnet.analysis.paired_main",
+      "--episodes-csv",
+      "runs/paper_cpu_smoke/episodes.csv",
+      "--reference",
+      "symqnet",
+      "--baselines",
+      "fixed",
+      "random",
+      "--out-csv",
+      "runs/paper_cpu_smoke/paired_main.csv",
+      "--out-tex",
+      "runs/paper_cpu_smoke/paired_main_table.tex",
+      "--acceptance-tex",
+      "runs/paper_cpu_smoke/main_result_table.tex"
+    ],
+    [
+      "/Users/btf/Desktop/SymQNet/.venv/bin/python",
+      "-m",
+      "symqnet.analysis.paper_figures",
+      "latency",
+      "--csv",
+      "runs/paper_cpu_smoke/shot_budget.csv",
+      "--out",
+      "runs/paper_cpu_smoke/latency.svg"
+    ],
+    [
+      "/Users/btf/Desktop/SymQNet/.venv/bin/python",
+      "-m",
+      "symqnet.analysis.paper_figures",
+      "pareto",
+      "--csv",
+      "runs/paper_cpu_smoke/shot_budget.csv",
+      "--out",
+      "runs/paper_cpu_smoke/mse_latency_pareto.svg"
+    ],
+    [
+      "/Users/btf/Desktop/SymQNet/.venv/bin/python",
+      "-m",
+      "symqnet.analysis.paper_figures",
+      "action-heatmap",
+      "--episodes-csv",
+      "runs/paper_cpu_smoke/episodes.csv",
+      "--out",
+      "runs/paper_cpu_smoke/action_heatmap_symqnet.svg",
+      "--n-qubits",
+      "3",
+      "--m-evo",
+      "2",
+      "--method",
+      "symqnet",
+      "--shot",
+      "128"
+    ],
+    [
+      "/Users/btf/Desktop/SymQNet/.venv/bin/python",
+      "-m",
+      "symqnet.analysis.validate_results",
+      "--summary-csv",
+      "runs/paper_cpu_smoke/shot_budget.csv",
+      "--episodes-csv",
+      "runs/paper_cpu_smoke/episodes.csv",
+      "--require-agent-checkpoints",
+      "--out",
+      "runs/paper_cpu_smoke/validation_report.json"
+    ]
+  ],
+  "config": {
+    "device": "auto",
+    "env": {
+      "default_shots": 16,
+      "h_range": [
+        0.5,
+        1.5
+      ],
+      "hamiltonian": "tfim",
+      "horizon": 4,
+      "j_range": [
+        0.5,
+        1.5
+      ],
+      "m_evo": 2,
+      "n_qubits": 3,
+      "noise_prob": 0.02,
+      "sample_shots_each_step": false,
+      "shots_set": [
+        16
+      ]
+    },
+    "eval": {
+      "baselines": [
+        "random",
+        "fixed"
+      ],
+      "bootstrap_samples": 100,
+      "episodes": 1,
+      "seeds": [
+        777
+      ],
+      "shot_budgets": [
+        16
+      ]
+    },
+    "model": {
+      "belief_mode": "both",
+      "gnn_layers": 1,
+      "graph": "chain",
+      "history": 4,
+      "latent_dim": 8,
+      "temporal": "last",
+      "use_smc_feedback": true,
+      "use_vae": true,
+      "vae_checkpoint": "artifacts/vae_n3_l8.pt"
+    },
+    "output_dir": "runs/smoke",
+    "ppo": {
+      "clip_eps": 0.2,
+      "clip_grad": 0.5,
+      "entropy_coef": 0.02,
+      "gae_lambda": 0.95,
+      "gamma": 0.99,
+      "learning_rate": 0.0001,
+      "minibatches": 1,
+      "ppo_epochs": 1,
+      "rollout_steps": 4,
+      "updates": 1,
+      "value_coef": 0.05
+    },
+    "seed": 777,
+    "smc": {
+      "ess_frac": 0.6,
+      "particles": 8,
+      "roughen_frac": 0.03,
+      "sim_chunk_size": 2
+    }
+  },
+  "config_hash": "7a1b79aa0c5d",
+  "created_unix": 1778978585.635871,
+  "elapsed_sec": 9.566833972930908,
+  "file_hashes": {
+    "configs/smoke.json": "ac5e887c408d5699cc2b4bd95284222438944ec06d02b0322ca08c621d18afa0",
+    "scripts/run_paper_cpu_cluster.sh": "c095258ddd2e64a4c20d7b82f4274bebaebfc1f12a0a47c06b3677fa4dca2501",
+    "symqnet/paper_cpu_cluster.py": "4271ec59e3f5acea27be2c919b2ed918f993e8a942dc46bc57b3c8d0a342bd8c"
+  },
+  "git": {
+    "is_git_repo": false
+  },
+  "outputs": [
+    {
+      "columns": [
+        "method",
+        "shots",
+        "eval_seed",
+        "train_seed",
+        "checkpoint_path",
+        "checkpoint_config_hash",
+        "config_hash",
+        "device",
+        "hardware",
+        "train_wallclock_sec",
+        "task_bank_path",
+        "episodes",
+        "mse_mean",
+        "mse_mean_ci95_lo",
+        "mse_mean_ci95_hi",
+        "mse_median",
+        "mse_iqr",
+        "info_gain_mean",
+        "decision_ms_mean",
+        "decision_ms_p95",
+        "crlb_theta_mse_mean",
+        "mse_crlb_ratio_mean",
+        "per_seed_mse_mean"
+      ],
+      "exists": true,
+      "path": "runs/paper_cpu_smoke/shot_budget.csv",
+      "rows": 3
+    },
+    {
+      "columns": [
+        "method",
+        "shots",
+        "episode_idx",
+        "seed",
+        "eval_seed",
+        "task_id",
+        "final_mse",
+        "total_info_gain",
+        "decision_ms_mean",
+        "decision_ms_p95",
+        "crlb_theta_mse",
+        "mse_crlb_ratio",
+        "actions",
+        "true_theta",
+        "train_seed",
+        "checkpoint_path",
+        "checkpoint_config_hash",
+        "config_hash",
+        "device",
+        "hardware",
+        "train_wallclock_sec",
+        "task_bank_path"
+      ],
+      "exists": true,
+      "path": "runs/paper_cpu_smoke/episodes.csv",
+      "rows": 3
+    },
+    {
+      "columns": [
+        "shots",
+        "reference",
+        "baseline",
+        "paired_tasks",
+        "wilcoxon_nonzero_pairs",
+        "reference_mse_mean",
+        "baseline_mse_mean",
+        "mse_delta_reference_minus_baseline",
+        "mse_ratio_reference_over_baseline",
+        "mse_ratio_ci95_lo",
+        "mse_ratio_ci95_hi",
+        "reference_decision_ms_mean",
+        "baseline_decision_ms_mean",
+        "latency_speedup_baseline_over_reference",
+        "latency_speedup_ci95_lo",
+        "latency_speedup_ci95_hi",
+        "wilcoxon_w",
+        "wilcoxon_p"
+      ],
+      "exists": true,
+      "path": "runs/paper_cpu_smoke/paired_main.csv",
+      "rows": 2
+    },
+    {
+      "exists": true,
+      "path": "runs/paper_cpu_smoke/main_result_table.tex"
+    }
+  ],
+  "packages": {
+    "matplotlib": "3.10.7",
+    "numpy": "2.4.5",
+    "pytest": "9.0.1",
+    "scipy": "",
+    "torch": "2.12.0"
+  },
+  "platform": {
+    "cpu_count": 8,
+    "machine": "arm64",
+    "processor": "arm",
+    "release": "24.6.0",
+    "system": "Darwin"
+  },
+  "python": "3.13.1 (main, Dec  3 2024, 17:59:52) [Clang 16.0.0 (clang-1600.0.26.4)]",
+  "run_root": "runs/paper_cpu_smoke",
+  "task_bank": {
+    "count": 1,
+    "exists": true,
+    "h_range": [
+      0.5,
+      1.5
+    ],
+    "j_range": [
+      0.5,
+      1.5
+    ],
+    "n_qubits": 3,
+    "path": "runs/paper_cpu_smoke/task_bank.npz",
+    "seed": 777,
+    "sha256": "8b7e3fda6d7099327a540cc7cee27d810df2a9de43b63325e2c9909e972191cc"
+  },
+  "torch": {
+    "cuda_available": false,
+    "mps_available": false
+  }
+}

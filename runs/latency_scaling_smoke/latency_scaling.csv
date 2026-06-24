@@ -1,0 +1,3 @@
+n_qubits,m_evo,n_actions,method,trials,decision_ms_mean,decision_ms_p95
+3,2,18,symqnet,1,11.311499984003603,11.311499984003603
+3,2,18,random,1,0.2554170205257833,0.2554170205257833

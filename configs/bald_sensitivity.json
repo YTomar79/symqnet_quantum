@@ -1,0 +1,11 @@
+{
+  "extends": "default.json",
+  "output_dir": "runs/bald_sensitivity",
+  "eval": {
+    "episodes": 100,
+    "seeds": [777, 778, 779, 780, 781],
+    "shot_budgets": [128, 512],
+    "baselines": ["bald_2step", "bald_2step_fast"],
+    "bootstrap_samples": 1000
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "extends": "default.json",
+  "output_dir": "runs/particle_p96",
+  "smc": {
+    "particles": 96
+  },
+  "eval": {
+    "episodes": 100,
+    "seeds": [777, 778, 779, 780, 781],
+    "shot_budgets": [128],
+    "baselines": ["random", "fixed_optimized", "fisher_greedy_fast", "bald_2step_fast"],
+    "bootstrap_samples": 1000
+  }
+}

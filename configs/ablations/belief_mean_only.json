@@ -1,0 +1,7 @@
+{
+  "extends": "../default.json",
+  "output_dir": "runs/ablations/belief_mean_only",
+  "model": {
+    "belief_mode": "mean"
+  }
+}

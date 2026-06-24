@@ -1,0 +1,7 @@
+{
+  "extends": "../default.json",
+  "output_dir": "runs/ablations_paper/no_graph",
+  "model": {
+    "graph": "none"
+  }
+}

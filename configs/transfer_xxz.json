@@ -1,0 +1,13 @@
+{
+  "extends": "default.json",
+  "output_dir": "runs/transfer_xxz",
+  "env": {
+    "hamiltonian": "xxz",
+    "default_shots": 128,
+    "shots_set": [128]
+  },
+  "eval": {
+    "episodes": 300,
+    "shot_budgets": [128]
+  }
+}

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="520" viewBox="0 0 760 520">
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#111827}.tick{font-size:12px;fill:#4b5563}.label{font-size:14px;fill:#374151}.title{font-size:20px;font-weight:700}.grid{stroke:#e5e7eb}.axis{stroke:#111827;stroke-width:1.2}</style>
+<rect width="100%" height="100%" fill="#fff"/>
+<text class="title" x="78" y="28">Reward sanity check</text>
+<line class="grid" x1="78.00" y1="42" x2="78.00" y2="450"/>
+<line class="grid" x1="78" y1="42.00" x2="726" y2="42.00"/>
+<text class="tick" x="78.00" y="472" text-anchor="middle">0.024</text>
+<text class="tick" x="68" y="46.00" text-anchor="end">23</text>
+<line class="grid" x1="207.60" y1="42" x2="207.60" y2="450"/>
+<line class="grid" x1="78" y1="123.60" x2="726" y2="123.60"/>
+<text class="tick" x="207.60" y="472" text-anchor="middle">0.061</text>
+<text class="tick" x="68" y="127.60" text-anchor="end">21</text>
+<line class="grid" x1="337.20" y1="42" x2="337.20" y2="450"/>
+<line class="grid" x1="78" y1="205.20" x2="726" y2="205.20"/>
+<text class="tick" x="337.20" y="472" text-anchor="middle">0.097</text>
+<text class="tick" x="68" y="209.20" text-anchor="end">19</text>
+<line class="grid" x1="466.80" y1="42" x2="466.80" y2="450"/>
+<line class="grid" x1="78" y1="286.80" x2="726" y2="286.80"/>
+<text class="tick" x="466.80" y="472" text-anchor="middle">0.13</text>
+<text class="tick" x="68" y="290.80" text-anchor="end">17</text>
+<line class="grid" x1="596.40" y1="42" x2="596.40" y2="450"/>
+<line class="grid" x1="78" y1="368.40" x2="726" y2="368.40"/>
+<text class="tick" x="596.40" y="472" text-anchor="middle">0.17</text>
+<text class="tick" x="68" y="372.40" text-anchor="end">14</text>
+<line class="grid" x1="726.00" y1="42" x2="726.00" y2="450"/>
+<line class="grid" x1="78" y1="450.00" x2="726" y2="450.00"/>
+<text class="tick" x="726.00" y="472" text-anchor="middle">0.21</text>
+<text class="tick" x="68" y="454.00" text-anchor="end">12</text>
+<line class="axis" x1="78" y1="450" x2="726" y2="450"/>
+<line class="axis" x1="78" y1="42" x2="78" y2="450"/>
+<text class="label" x="402.0" y="496" text-anchor="middle">Total information-gain reward</text>
+<text class="label" transform="translate(22 246.0) rotate(-90)" text-anchor="middle">1 / final theta-MSE</text>
+<circle cx="107.45" cy="431.45" r="3.2" fill="#6b7280" opacity="0.62"/>
+<circle cx="696.55" cy="60.55" r="3.2" fill="#16a34a" opacity="0.62"/>
+<circle cx="453.22" cy="299.65" r="3.2" fill="#2563eb" opacity="0.62"/>
+</svg>

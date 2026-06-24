@@ -1,0 +1,42 @@
+{
+  "baseline": "bald_2step_fast",
+  "baseline_latency_log_slope": 1.5190737845467952,
+  "claim_recommendation": "The strong action-scaling claim is supported by an N>=10 anchor and MPS validation.",
+  "latency_slope_ratio_reference_over_baseline": 0.19770681702500495,
+  "mse_ratio_max": 1.25,
+  "reference": "symqnet",
+  "reference_latency_log_slope": 0.300331242768875,
+  "scaling_claim_ok": true,
+  "slope_ratio_max": 0.5,
+  "strong_gate": {
+    "anchor_ns": [
+      10,
+      12
+    ],
+    "anchor_rows": [
+      {
+        "latency_speedup_ci95_lo": 4309.646941830645,
+        "mse_ratio_ci95_hi": 0.8249110150284829,
+        "n_qubits": 10,
+        "passes": true
+      },
+      {
+        "latency_speedup_ci95_lo": 6261.380017288951,
+        "mse_ratio_ci95_hi": 0.8067782812687602,
+        "n_qubits": 12,
+        "passes": true
+      }
+    ],
+    "latency_speedup_ci95_lo_min": 10.0,
+    "mps_validation": {
+      "max_mean_abs_error": 0.0024094246327877045,
+      "passes": true,
+      "present": true,
+      "threshold": 0.02
+    },
+    "mse_ratio_ci95_hi_max": 1.35,
+    "shot": 128
+  },
+  "strong_scaling_claim_ok": true,
+  "worst_mse_ratio_reference_over_baseline": 0.937900947695528
+}

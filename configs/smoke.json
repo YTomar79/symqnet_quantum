@@ -1,0 +1,62 @@
+{
+  "seed": 777,
+  "device": "auto",
+  "output_dir": "runs/smoke",
+  "env": {
+    "n_qubits": 3,
+    "m_evo": 2,
+    "horizon": 4,
+    "hamiltonian": "tfim",
+    "noise_prob": 0.02,
+    "noise_model": "readout_flip",
+    "readout_p01": 0.02,
+    "readout_p10": 0.02,
+    "t1_us": 100.0,
+    "t2_us": 70.0,
+    "time_scale_us": 1.0,
+    "default_shots": 16,
+    "shots_set": [16],
+    "sample_shots_each_step": false,
+    "j_range": [0.5, 1.5],
+    "h_range": [0.5, 1.5]
+  },
+  "model": {
+    "latent_dim": 8,
+    "use_vae": true,
+    "history": 4,
+    "gnn_layers": 1,
+    "temporal": "last",
+    "graph": "chain",
+    "use_smc_feedback": true,
+    "belief_mode": "both",
+    "vae_checkpoint": "artifacts/vae_n3_l8.pt"
+  },
+  "smc": {
+    "particles": 8,
+    "ess_frac": 0.6,
+    "roughen_frac": 0.03,
+    "sim_chunk_size": 2
+  },
+  "ppo": {
+    "updates": 1,
+    "rollout_steps": 4,
+    "ppo_epochs": 1,
+    "minibatches": 1,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "learning_rate": 0.0001,
+    "entropy_coef": 0.02,
+    "value_coef": 0.05,
+    "clip_eps": 0.2,
+    "clip_grad": 0.5,
+    "reward_mode": "info_gain",
+    "behavior_clone_checkpoint": ""
+  },
+  "eval": {
+    "episodes": 1,
+    "seeds": [777],
+    "shot_budgets": [16],
+    "baselines": ["random", "fixed"],
+    "bootstrap_samples": 100
+  }
+}

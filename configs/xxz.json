@@ -1,0 +1,10 @@
+{
+  "extends": "default.json",
+  "output_dir": "runs/xxz/symqnet",
+  "env": {
+    "hamiltonian": "xxz"
+  },
+  "model": {
+    "use_vae": false
+  }
+}

@@ -1,0 +1,8 @@
+method,hamiltonian,n_qubits,m_evo,horizon,n_actions,noise_prob,noise_model,readout_p01,readout_p10,t1_us,t2_us,smc_particles,predictive_samples,depth,top_k,objective,non_adaptive,basis_order,graph,temporal,use_smc_feedback
+bald_2step_fast,tfim,8,5,36,120,0.02,readout_flip,0.02,0.02,100.0,70.0,256,1,2,2,,,,,,
+dad_transformer,tfim,8,5,36,120,0.02,readout_flip,0.02,0.02,100.0,70.0,256,,,,,,,none,transformer,False
+fisher_greedy_fast,tfim,8,5,36,120,0.02,readout_flip,0.02,0.02,100.0,70.0,256,,,,particle_linearized_fisher_logdet,,,,,
+fixed,tfim,8,5,36,120,0.02,readout_flip,0.02,0.02,100.0,70.0,256,,,,,,0 1 2,,,
+fixed_optimized,tfim,8,5,36,120,0.02,readout_flip,0.02,0.02,100.0,70.0,256,,,,prior_center_fisher_logdet,True,,,,
+random,tfim,8,5,36,120,0.02,readout_flip,0.02,0.02,100.0,70.0,256,,,,,,,,,
+symqnet,tfim,8,5,36,120,0.02,readout_flip,0.02,0.02,100.0,70.0,256,,,,,,,chain,transformer,True

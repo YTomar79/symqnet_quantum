@@ -1,0 +1,12 @@
+\begin{tabular}{llrrrrr}
+\toprule
+Shots & Comparison & $n$ & MSE ratio & $\Delta$MSE & Speedup & $p_{\mathrm{BH}}$ \\
+\midrule
+128 & symqnet / dad\_transformer & 100 & 1.02 & 0.00136 & 0.517 & 0.156 \\
+128 & symqnet / random & 100 & 0.956 & -0.00383 & 0.00864 & 0.618 \\
+128 & symqnet / fixed & 100 & 1.12 & 0.0088 & 0.000714 & 1.22e-05 \\
+128 & symqnet / fixed\_optimized & 100 & 1.02 & 0.00169 & 154 & 0.491 \\
+128 & symqnet / fisher\_greedy\_fast & 100 & 0.951 & -0.00426 & 7.73e+03 & 0.461 \\
+128 & symqnet / bald\_2step\_fast & 100 & 0.765 & -0.0253 & 4.47e+03 & 6.87e-08 \\
+\bottomrule
+\end{tabular}

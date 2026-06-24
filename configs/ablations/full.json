@@ -1,0 +1,4 @@
+{
+  "extends": "../default.json",
+  "output_dir": "runs/ablations/full"
+}

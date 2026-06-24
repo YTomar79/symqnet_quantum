@@ -1,0 +1,18 @@
+{
+  "extends": "default.json",
+  "output_dir": "runs/noisy_native",
+  "env": {
+    "noise_model": "native_decoherence",
+    "readout_p01": 0.025,
+    "readout_p10": 0.02,
+    "t1_us": 100.0,
+    "t2_us": 70.0,
+    "time_scale_us": 1.0,
+    "default_shots": 128,
+    "shots_set": [128]
+  },
+  "eval": {
+    "episodes": 300,
+    "shot_budgets": [128]
+  }
+}

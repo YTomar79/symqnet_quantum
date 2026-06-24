@@ -1,0 +1,867 @@
+{
+  "args": {
+    "ablation_baselines": [
+      "no_vae",
+      "no_smc_feedback",
+      "no_graph",
+      "mlp_only"
+    ],
+    "ablation_delta_shot": 128,
+    "ablation_reference": "full",
+    "allow_random_vae": false,
+    "anonymize_manifest": false,
+    "baselines": [
+      "random",
+      "fixed_optimized",
+      "fisher_greedy_fast",
+      "bald_2step_fast"
+    ],
+    "compact_table_shots": [
+      128,
+      512
+    ],
+    "config": "configs/ablations_paper/full.json",
+    "episodes": 300,
+    "eval_seeds": [
+      777,
+      778,
+      779,
+      780,
+      781
+    ],
+    "extra_agents": [
+      [
+        "no_vae",
+        "configs/ablations_paper/no_vae.json"
+      ],
+      [
+        "no_smc_feedback",
+        "configs/ablations_paper/no_smc_feedback.json"
+      ],
+      [
+        "no_graph",
+        "configs/ablations_paper/no_graph.json"
+      ],
+      [
+        "mlp_only",
+        "configs/ablations_paper/mlp_only.json"
+      ]
+    ],
+    "m_evo": 5,
+    "main_comparisons": [
+      "mlp_only",
+      "no_graph",
+      "no_smc_feedback",
+      "no_vae",
+      "dad_transformer",
+      "bald_2step_fast",
+      "fisher_greedy_fast",
+      "fixed_optimized",
+      "random"
+    ],
+    "n_qubits": 5,
+    "postprocess_mode": "ablation",
+    "primary_agent_name": "full",
+    "run_root": "runs/ablations_paper",
+    "seeds": [
+      777,
+      778,
+      779
+    ],
+    "skip_baselines": true,
+    "started_at": 1779655686.1104891,
+    "task_bank": "runs/ablations_paper/task_bank.npz",
+    "task_counts": {
+      "baseline": 0,
+      "eval": 75,
+      "train": 15
+    },
+    "updates": 2500,
+    "validation_episodes": 32,
+    "validation_interval": 25,
+    "validation_task_bank": "runs/ablations_paper/validation_task_bank.npz",
+    "with_crlb": true
+  },
+  "commands": [
+    [
+      "array-task",
+      "train",
+      "0"
+    ],
+    [
+      "array-task",
+      "train",
+      "1"
+    ],
+    [
+      "array-task",
+      "train",
+      "2"
+    ],
+    [
+      "array-task",
+      "train",
+      "3"
+    ],
+    [
+      "array-task",
+      "train",
+      "4"
+    ],
+    [
+      "array-task",
+      "train",
+      "5"
+    ],
+    [
+      "array-task",
+      "train",
+      "6"
+    ],
+    [
+      "array-task",
+      "train",
+      "7"
+    ],
+    [
+      "array-task",
+      "train",
+      "8"
+    ],
+    [
+      "array-task",
+      "train",
+      "9"
+    ],
+    [
+      "array-task",
+      "train",
+      "10"
+    ],
+    [
+      "array-task",
+      "train",
+      "11"
+    ],
+    [
+      "array-task",
+      "train",
+      "12"
+    ],
+    [
+      "array-task",
+      "train",
+      "13"
+    ],
+    [
+      "array-task",
+      "train",
+      "14"
+    ],
+    [
+      "array-task",
+      "eval",
+      "0"
+    ],
+    [
+      "array-task",
+      "eval",
+      "1"
+    ],
+    [
+      "array-task",
+      "eval",
+      "2"
+    ],
+    [
+      "array-task",
+      "eval",
+      "3"
+    ],
+    [
+      "array-task",
+      "eval",
+      "4"
+    ],
+    [
+      "array-task",
+      "eval",
+      "5"
+    ],
+    [
+      "array-task",
+      "eval",
+      "6"
+    ],
+    [
+      "array-task",
+      "eval",
+      "7"
+    ],
+    [
+      "array-task",
+      "eval",
+      "8"
+    ],
+    [
+      "array-task",
+      "eval",
+      "9"
+    ],
+    [
+      "array-task",
+      "eval",
+      "10"
+    ],
+    [
+      "array-task",
+      "eval",
+      "11"
+    ],
+    [
+      "array-task",
+      "eval",
+      "12"
+    ],
+    [
+      "array-task",
+      "eval",
+      "13"
+    ],
+    [
+      "array-task",
+      "eval",
+      "14"
+    ],
+    [
+      "array-task",
+      "eval",
+      "15"
+    ],
+    [
+      "array-task",
+      "eval",
+      "16"
+    ],
+    [
+      "array-task",
+      "eval",
+      "17"
+    ],
+    [
+      "array-task",
+      "eval",
+      "18"
+    ],
+    [
+      "array-task",
+      "eval",
+      "19"
+    ],
+    [
+      "array-task",
+      "eval",
+      "20"
+    ],
+    [
+      "array-task",
+      "eval",
+      "21"
+    ],
+    [
+      "array-task",
+      "eval",
+      "22"
+    ],
+    [
+      "array-task",
+      "eval",
+      "23"
+    ],
+    [
+      "array-task",
+      "eval",
+      "24"
+    ],
+    [
+      "array-task",
+      "eval",
+      "25"
+    ],
+    [
+      "array-task",
+      "eval",
+      "26"
+    ],
+    [
+      "array-task",
+      "eval",
+      "27"
+    ],
+    [
+      "array-task",
+      "eval",
+      "28"
+    ],
+    [
+      "array-task",
+      "eval",
+      "29"
+    ],
+    [
+      "array-task",
+      "eval",
+      "30"
+    ],
+    [
+      "array-task",
+      "eval",
+      "31"
+    ],
+    [
+      "array-task",
+      "eval",
+      "32"
+    ],
+    [
+      "array-task",
+      "eval",
+      "33"
+    ],
+    [
+      "array-task",
+      "eval",
+      "34"
+    ],
+    [
+      "array-task",
+      "eval",
+      "35"
+    ],
+    [
+      "array-task",
+      "eval",
+      "36"
+    ],
+    [
+      "array-task",
+      "eval",
+      "37"
+    ],
+    [
+      "array-task",
+      "eval",
+      "38"
+    ],
+    [
+      "array-task",
+      "eval",
+      "39"
+    ],
+    [
+      "array-task",
+      "eval",
+      "40"
+    ],
+    [
+      "array-task",
+      "eval",
+      "41"
+    ],
+    [
+      "array-task",
+      "eval",
+      "42"
+    ],
+    [
+      "array-task",
+      "eval",
+      "43"
+    ],
+    [
+      "array-task",
+      "eval",
+      "44"
+    ],
+    [
+      "array-task",
+      "eval",
+      "45"
+    ],
+    [
+      "array-task",
+      "eval",
+      "46"
+    ],
+    [
+      "array-task",
+      "eval",
+      "47"
+    ],
+    [
+      "array-task",
+      "eval",
+      "48"
+    ],
+    [
+      "array-task",
+      "eval",
+      "49"
+    ],
+    [
+      "array-task",
+      "eval",
+      "50"
+    ],
+    [
+      "array-task",
+      "eval",
+      "51"
+    ],
+    [
+      "array-task",
+      "eval",
+      "52"
+    ],
+    [
+      "array-task",
+      "eval",
+      "53"
+    ],
+    [
+      "array-task",
+      "eval",
+      "54"
+    ],
+    [
+      "array-task",
+      "eval",
+      "55"
+    ],
+    [
+      "array-task",
+      "eval",
+      "56"
+    ],
+    [
+      "array-task",
+      "eval",
+      "57"
+    ],
+    [
+      "array-task",
+      "eval",
+      "58"
+    ],
+    [
+      "array-task",
+      "eval",
+      "59"
+    ],
+    [
+      "array-task",
+      "eval",
+      "60"
+    ],
+    [
+      "array-task",
+      "eval",
+      "61"
+    ],
+    [
+      "array-task",
+      "eval",
+      "62"
+    ],
+    [
+      "array-task",
+      "eval",
+      "63"
+    ],
+    [
+      "array-task",
+      "eval",
+      "64"
+    ],
+    [
+      "array-task",
+      "eval",
+      "65"
+    ],
+    [
+      "array-task",
+      "eval",
+      "66"
+    ],
+    [
+      "array-task",
+      "eval",
+      "67"
+    ],
+    [
+      "array-task",
+      "eval",
+      "68"
+    ],
+    [
+      "array-task",
+      "eval",
+      "69"
+    ],
+    [
+      "array-task",
+      "eval",
+      "70"
+    ],
+    [
+      "array-task",
+      "eval",
+      "71"
+    ],
+    [
+      "array-task",
+      "eval",
+      "72"
+    ],
+    [
+      "array-task",
+      "eval",
+      "73"
+    ],
+    [
+      "array-task",
+      "eval",
+      "74"
+    ]
+  ],
+  "config": {
+    "device": "auto",
+    "env": {
+      "default_shots": 128,
+      "h_range": [
+        0.5,
+        1.5
+      ],
+      "hamiltonian": "tfim",
+      "horizon": 36,
+      "j_range": [
+        0.5,
+        1.5
+      ],
+      "m_evo": 5,
+      "mps_bond_dim": 32,
+      "mps_trotter_steps": 8,
+      "n_qubits": 5,
+      "noise_model": "readout_flip",
+      "noise_prob": 0.02,
+      "readout_p01": 0.02,
+      "readout_p10": 0.02,
+      "sample_shots_each_step": false,
+      "shots_set": [
+        32,
+        64,
+        128,
+        256,
+        512
+      ],
+      "simulator_backend": "statevector",
+      "t1_us": 100.0,
+      "t2_us": 70.0,
+      "time_scale_us": 1.0
+    },
+    "eval": {
+      "baselines": [
+        "random",
+        "fixed_optimized",
+        "fisher_greedy_fast",
+        "bald_2step_fast"
+      ],
+      "bootstrap_samples": 1000,
+      "episodes": 200,
+      "seeds": [
+        777,
+        778,
+        779,
+        780,
+        781
+      ],
+      "shot_budgets": [
+        32,
+        64,
+        128,
+        256,
+        512
+      ]
+    },
+    "model": {
+      "belief_mode": "both",
+      "gnn_layers": 2,
+      "graph": "chain",
+      "history": 20,
+      "latent_dim": 16,
+      "temporal": "transformer",
+      "use_smc_feedback": true,
+      "use_vae": true,
+      "vae_checkpoint": "artifacts/vae_n5_l16.pt"
+    },
+    "output_dir": "runs/ablations_paper/full",
+    "ppo": {
+      "behavior_clone_checkpoint": "",
+      "clip_eps": 0.2,
+      "clip_grad": 0.5,
+      "entropy_coef": 0.02,
+      "gae_lambda": 0.95,
+      "gamma": 0.99,
+      "learning_rate": 0.0001,
+      "minibatches": 2,
+      "ppo_epochs": 2,
+      "reward_mode": "info_gain",
+      "rollout_steps": 64,
+      "updates": 2500,
+      "value_coef": 0.05
+    },
+    "seed": 777,
+    "smc": {
+      "ess_frac": 0.6,
+      "particles": 256,
+      "roughen_frac": 0.03,
+      "sim_chunk_size": 4
+    }
+  },
+  "config_hash": "c87320d89170",
+  "created_unix": 1779718901.6502638,
+  "elapsed_sec": 63215.53977513313,
+  "file_hashes": {
+    "artifacts/vae_n5_l16.pt": "308ede9631e4e2b81e8c1d092a95da9c2a51cd9610d3886c6b4b4c8ef31d7934",
+    "configs/ablations_paper/full.json": "9892a043d5ce0aa31fcca6a06af34c1eeb3505ffa74bc156dc5e0a76ec969317"
+  },
+  "git": {
+    "is_git_repo": false
+  },
+  "outputs": [
+    {
+      "columns": [
+        "method",
+        "shots",
+        "eval_seed",
+        "train_seed",
+        "checkpoint_path",
+        "checkpoint_config_hash",
+        "checkpoint_selection_metric",
+        "best_validation_mse",
+        "validation_task_bank_path",
+        "config_hash",
+        "device",
+        "hardware",
+        "train_wallclock_sec",
+        "reward_mode",
+        "behavior_clone_checkpoint",
+        "task_bank_path",
+        "policy_params",
+        "episodes",
+        "mse_mean",
+        "mse_mean_ci95_lo",
+        "mse_mean_ci95_hi",
+        "mse_median",
+        "mse_iqr",
+        "info_gain_mean",
+        "decision_ms_mean",
+        "decision_ms_p95",
+        "smc_update_ms_mean",
+        "smc_update_ms_p95",
+        "step_total_ms_mean",
+        "step_total_ms_p95",
+        "crlb_theta_mse_mean",
+        "mse_crlb_ratio_mean",
+        "per_seed_mse_mean"
+      ],
+      "exists": true,
+      "path": "runs/ablations_paper/shot_budget.csv",
+      "rows": 75
+    },
+    {
+      "columns": [
+        "method",
+        "shots",
+        "episode_idx",
+        "seed",
+        "eval_seed",
+        "task_id",
+        "final_mse",
+        "total_info_gain",
+        "decision_ms_mean",
+        "decision_ms_p95",
+        "smc_update_ms_mean",
+        "smc_update_ms_p95",
+        "step_total_ms_mean",
+        "step_total_ms_p95",
+        "crlb_theta_mse",
+        "mse_crlb_ratio",
+        "actions",
+        "true_theta",
+        "train_seed",
+        "checkpoint_path",
+        "checkpoint_config_hash",
+        "checkpoint_selection_metric",
+        "best_validation_mse",
+        "validation_task_bank_path",
+        "config_hash",
+        "device",
+        "hardware",
+        "train_wallclock_sec",
+        "reward_mode",
+        "behavior_clone_checkpoint",
+        "task_bank_path",
+        "policy_params"
+      ],
+      "exists": true,
+      "path": "runs/ablations_paper/episodes.csv",
+      "rows": 112500
+    },
+    {
+      "columns": [
+        "shots",
+        "reference",
+        "baseline",
+        "paired_tasks",
+        "wilcoxon_nonzero_pairs",
+        "reference_mse_mean",
+        "reference_mse_median",
+        "reference_mse_iqr",
+        "baseline_mse_mean",
+        "baseline_mse_median",
+        "baseline_mse_iqr",
+        "mse_delta_reference_minus_baseline",
+        "mse_ratio_reference_over_baseline",
+        "mse_ratio_ci95_lo",
+        "mse_ratio_ci95_hi",
+        "reference_decision_ms_mean",
+        "baseline_decision_ms_mean",
+        "latency_speedup_baseline_over_reference",
+        "latency_speedup_ci95_lo",
+        "latency_speedup_ci95_hi",
+        "wilcoxon_w",
+        "wilcoxon_p",
+        "wilcoxon_p_bh",
+        "wilcoxon_p_holm",
+        "cliffs_delta",
+        "rank_biserial"
+      ],
+      "exists": true,
+      "path": "runs/ablations_paper/paired_ablations.csv",
+      "rows": 20
+    },
+    {
+      "exists": true,
+      "path": "runs/ablations_paper/ablation_delta_128.tex"
+    }
+  ],
+  "packages": {
+    "matplotlib": "3.10.6",
+    "numpy": "2.3.5",
+    "pytest": "",
+    "scipy": "1.16.2",
+    "torch": "2.7.1"
+  },
+  "platform": {
+    "cpu_count": 128,
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "release": "4.18.0-553.47.1.el8_10.x86_64",
+    "system": "Linux"
+  },
+  "python": "3.13.5 | packaged by conda-forge | (main, Jun 16 2025, 08:27:50) [GCC 13.3.0]",
+  "run_root": "runs/ablations_paper",
+  "task_bank": {
+    "count": 1500,
+    "exists": true,
+    "h_range": [
+      0.5,
+      1.5
+    ],
+    "j_range": [
+      0.5,
+      1.5
+    ],
+    "n_qubits": 5,
+    "path": "runs/ablations_paper/task_bank.npz",
+    "seed": 777,
+    "sha256": "51efe405645e5195a37324727bb4d04e52e49b2532f8be10066430794920aca3"
+  },
+  "torch": {
+    "cuda_available": false,
+    "mps_available": false
+  },
+  "vae_checkpoint": {
+    "exists": true,
+    "path": "artifacts/vae_n5_l16.pt",
+    "pretrain_metadata": {
+      "batch_size": 128,
+      "beta": 0.003,
+      "config_hash": "ca97b2bf4d16",
+      "config_path": "configs/default.json",
+      "device": "cpu",
+      "epochs": 50,
+      "final_loss": 0.017014790999889375,
+      "hardware": "cpu:x86_64",
+      "learning_rate": 0.0003,
+      "loss_history": [
+        0.32243634921709696,
+        0.17456482068300247,
+        0.05987840278744697,
+        0.05049980444510778,
+        0.046938054299354555,
+        0.04456360380252202,
+        0.042831939327716825,
+        0.04101761434872945,
+        0.03927099567254384,
+        0.03743438200155894,
+        0.03589973672231039,
+        0.034320139247179034,
+        0.0328837632526954,
+        0.03149324021538099,
+        0.03032016680339972,
+        0.02903777609864871,
+        0.027942914616068203,
+        0.026812130324045818,
+        0.02589111396074295,
+        0.025154282395044962,
+        0.024393154310186703,
+        0.023729086582859358,
+        0.022983742789427438,
+        0.02246924613416195,
+        0.022079658435781798,
+        0.02160293236374855,
+        0.02115419144332409,
+        0.020790378111600876,
+        0.020536137172579766,
+        0.02013921709060669,
+        0.019887223573525747,
+        0.019757265921433766,
+        0.019462926177183787,
+        0.01922180081009865,
+        0.019048535666863122,
+        0.01881571585337321,
+        0.018642744601766268,
+        0.01843911512196064,
+        0.018308810498317084,
+        0.01818486623466015,
+        0.017960791767636933,
+        0.01787079095641772,
+        0.017796259067455928,
+        0.017590982200702033,
+        0.017410850500067077,
+        0.0173259313583374,
+        0.017290975828965504,
+        0.017358433747291565,
+        0.01715578655997912,
+        0.017014790999889375
+      ],
+      "samples": 15000,
+      "seed": 777,
+      "train_wallclock_sec": 27.028438968001865
+    },
+    "sha256": "308ede9631e4e2b81e8c1d092a95da9c2a51cd9610d3886c6b4b4c8ef31d7934",
+    "used": true
+  }
+}

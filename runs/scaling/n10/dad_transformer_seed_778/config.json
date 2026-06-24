@@ -1,0 +1,86 @@
+{
+  "seed": 778,
+  "device": "auto",
+  "output_dir": "runs/scaling/n10/dad_transformer_seed_778",
+  "env": {
+    "n_qubits": 10,
+    "m_evo": 5,
+    "horizon": 36,
+    "hamiltonian": "tfim",
+    "noise_prob": 0.02,
+    "noise_model": "readout_flip",
+    "readout_p01": 0.02,
+    "readout_p10": 0.02,
+    "t1_us": 100.0,
+    "t2_us": 70.0,
+    "time_scale_us": 1.0,
+    "default_shots": 128,
+    "shots_set": [
+      128
+    ],
+    "sample_shots_each_step": false,
+    "j_range": [
+      0.5,
+      1.5
+    ],
+    "h_range": [
+      0.5,
+      1.5
+    ],
+    "simulator_backend": "mps_tebd",
+    "mps_bond_dim": 32,
+    "mps_trotter_steps": 8
+  },
+  "model": {
+    "latent_dim": 16,
+    "use_vae": false,
+    "history": 20,
+    "gnn_layers": 2,
+    "temporal": "transformer",
+    "graph": "none",
+    "use_smc_feedback": false,
+    "belief_mode": "none",
+    "vae_checkpoint": "artifacts/vae_n10_l16.pt"
+  },
+  "smc": {
+    "particles": 256,
+    "ess_frac": 0.6,
+    "roughen_frac": 0.03,
+    "sim_chunk_size": 4
+  },
+  "ppo": {
+    "updates": 300,
+    "rollout_steps": 64,
+    "ppo_epochs": 2,
+    "minibatches": 2,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "learning_rate": 0.0001,
+    "entropy_coef": 0.02,
+    "value_coef": 0.05,
+    "clip_eps": 0.2,
+    "clip_grad": 0.5,
+    "reward_mode": "info_gain",
+    "behavior_clone_checkpoint": ""
+  },
+  "eval": {
+    "episodes": 300,
+    "seeds": [
+      777,
+      778,
+      779,
+      780,
+      781
+    ],
+    "shot_budgets": [
+      128
+    ],
+    "baselines": [
+      "random",
+      "fixed_optimized",
+      "fisher_greedy_fast",
+      "bald_2step_fast"
+    ],
+    "bootstrap_samples": 1000
+  }
+}

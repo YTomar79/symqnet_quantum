@@ -1,0 +1,6 @@
+# Large result files are tracked with Git LFS so the repository stays
+# clonable and stays under the 100 MB per-file limit on common hosts.
+runs/**/episodes.csv filter=lfs diff=lfs merge=lfs -text
+*.npy filter=lfs diff=lfs merge=lfs -text
+*.pt  filter=lfs diff=lfs merge=lfs -text
+*.pt filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,11 @@
+{
+  "extends": "n12.json",
+  "output_dir": "runs/scaling/n12/dad_transformer",
+  "model": {
+    "use_vae": false,
+    "graph": "none",
+    "temporal": "transformer",
+    "use_smc_feedback": false,
+    "belief_mode": "none"
+  }
+}
