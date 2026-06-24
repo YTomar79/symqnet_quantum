@@ -10,16 +10,6 @@ must solve an expensive optimization at every step. The policy targets the
 scaling-relevant regime where that per-step optimization becomes the dominant
 bottleneck.
 
-The system has three parts:
-
-- **`SymQNetAgent`** chooses adaptive measurement actions from a belief-conditioned
-  graph + temporal encoder.
-- **`SMCParticleFilter`** maintains a posterior over Hamiltonian parameters and
-  supplies belief feedback to the policy.
-- **`SpinChainEnv`** applies finite-shot sampling plus either readout-flip noise or
-  a lightweight native decoherence/readout model, with a dense statevector backend
-  by default and an opt-in MPS/TEBD backend for larger chains.
-
 ## Key result
 
 On TFIM chains of increasing size, SymQNet matches or beats the parameter MSE of
@@ -115,51 +105,6 @@ Before treating a run as final, validate it:
 .venv/bin/python -m symqnet.analysis.paper_readiness \
   --run-root runs/main_result --config configs/default.json
 ```
-
-## Baselines
-
-Every baseline runs in the same environment and reports final parameter MSE and
-decision latency on a shared task bank: `random`, `fixed`, `fixed_optimized`
-(non-adaptive optimized schedule), `fisher_greedy_fast` (bounded adaptive Fisher),
-`bald_2step_fast` (bounded two-step BALD), and `dad_transformer` (a neural
-Bayesian-experimental-design comparator).
-
-## Ablations
-
-The headline architecture ablations live in `configs/ablations_paper/`: `full`,
-`no_vae`, `no_graph`, `no_smc_feedback`, and `mlp_only`. A larger exploratory set is
-in `configs/ablations/`.
-
-## Results provenance
-
-Result CSVs carry explicit `train_seed`, `eval_seed`, `task_id`, checkpoint path,
-config hash, device, and training wall-clock provenance. Each run directory includes
-a `manifest.json` recording inputs and file hashes.
-
-## Large files
-
-The largest per-episode traces are tracked with **Git LFS** (see `.gitattributes`).
-Install Git LFS before cloning to retrieve them:
-
-```bash
-git lfs install
-git clone <repository-url>
-```
-
-## Testing
-
-```bash
-.venv/bin/python -m pytest tests
-```
-
-## Scope and limitations
-
-Results use statevector/MPS simulation rather than hardware, local single-qubit
-measurements, and bounded online Fisher/BALD comparators. PPO trains on entropy
-reduction while evaluation reports final parameter MSE; `reward_objective.csv` is a
-required diagnostic of this proxy, not a settled validation. The SMC estimator is
-biased, so CRLB ratios are reported as diagnostics only, not as a headline
-efficiency claim.
 
 ## License
 
