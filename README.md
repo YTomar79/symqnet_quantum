@@ -1,6 +1,6 @@
 # SymQNet: Amortized Acquisition for Low-Latency Adaptive Hamiltonian Learning
 
-This repo contains the code, raw CSVs, and results for "SymQNet: Amortized Acquisition for Low-Latency Adaptive Hamiltonian Learning" (arXiv:2606.12808v3). Submitted to QCE QCRL Workshop 2026. 
+This repo contains the code, raw CSVs, and results for "SymQNet: Amortized Acquisition for Low-Latency Adaptive Hamiltonian Learning" (arXiv:2606.12808v3). Submitted to IEEE Quantum Week International Workshop on Quantum Computing and Reinforcement Learning 2026. 
 
 ## Repository layout
 
