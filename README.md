@@ -5,6 +5,9 @@
 ¹ Purdue University
 
 [![arXiv](https://img.shields.io/badge/arXiv-2606.12808-b31b1b.svg)](https://arxiv.org/abs/2606.12808)
+[![CI](https://github.com/YTomar79/symqnet_quantum/actions/workflows/ci.yml/badge.svg)](https://github.com/YTomar79/symqnet_quantum/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 
@@ -93,11 +96,19 @@ requirements.txt               Pinned dependencies
 
 ## Installation
 
-Requires Python 3.12+.
+Requires Python 3.11+ and [Git LFS](https://git-lfs.com) (the trained
+checkpoints and result files are LFS-tracked; without it they clone as small
+pointer files and loading them fails with a clear error).
 
 ```bash
+git lfs install
+git clone https://github.com/YTomar79/symqnet_quantum.git
+cd symqnet_quantum
+git lfs pull                                  # fetch checkpoints and result files
+
 python -m venv .venv
 .venv/bin/pip install -r requirements.txt
+.venv/bin/python -m pytest tests              # confirm the install
 ```
 
 ## Quick start
@@ -150,13 +161,11 @@ EPISODES=100 UPDATES=500 bash reproduce.sh
 
 ### 1. Set up the environment
 
+Follow [Installation](#installation) above (Git LFS, clone, virtual
+environment, dependencies). Confirm the setup before running the sweep:
+
 ```bash
-git clone <repository-url>
-cd symqnet-public
-git lfs install                       # large result files are tracked with LFS
-python -m venv .venv
-.venv/bin/pip install -r requirements.txt
-.venv/bin/python -m pytest tests      # confirm the install
+.venv/bin/python -m pytest tests
 ```
 
 ### 2. Pretrain the belief VAE

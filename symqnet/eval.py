@@ -10,6 +10,7 @@ import torch
 
 from .analysis.fisher import classical_fisher_for_actions, crlb_theta_mse
 from .baselines import KNOWN_BASELINES, make_baseline
+from ._io import load_torch
 from .config import load_config
 from .env import SpinChainEnv
 from .evaluation import run_episode_with_action_policy, run_episode_with_agent, summarize
@@ -33,10 +34,7 @@ def _should_log_episode(index: int, total: int, interval: int) -> bool:
 
 
 def _load_torch(path: Path, device: torch.device):
-    try:
-        return torch.load(path, map_location=device, weights_only=False)
-    except TypeError:
-        return torch.load(path, map_location=device)
+    return load_torch(path, map_location=device)
 
 
 def build_env_and_smc(cfg, seed: int, shots: int, device: torch.device) -> tuple[SpinChainEnv, SMCParticleFilter]:

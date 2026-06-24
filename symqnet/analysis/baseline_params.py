@@ -83,13 +83,14 @@ def write_latex(rows: list[dict[str, object]], out: Path) -> None:
     ]
     for row in rows:
         method = str(row["method"]).replace("_", r"\_")
+        objective = str(row["objective"]).replace("_", r"\_")
         depth_topk = ""
         if row["depth"] != "":
             depth_topk = f"{row['depth']}/{row['top_k']}"
         lines.append(
             f"{method} & {row['n_qubits']} & {row['m_evo']} & {row['n_actions']} & "
             f"{row['smc_particles']} & {row['predictive_samples']} & {depth_topk} & "
-            f"{str(row['objective']).replace('_', r'\\_')} \\\\"
+            f"{objective} \\\\"
         )
     lines.extend([r"\bottomrule", r"\end{tabular}"])
     out.parent.mkdir(parents=True, exist_ok=True)

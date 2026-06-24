@@ -150,7 +150,8 @@ def make_table(rows, reference: str) -> str:
             if not x:
                 continue
             w, p, n = wilcoxon_signed_rank(x, y)
-            lines.append(f"{shots} & {method.replace('_', r'\\_')} & {n} & {w:.1f} & {p:.3g} \\\\")
+            method_label = method.replace("_", r"\_")
+            lines.append(f"{shots} & {method_label} & {n} & {w:.1f} & {p:.3g} \\\\")
     lines.extend([r"\bottomrule", r"\end{tabular}"])
     return "\n".join(lines)
 

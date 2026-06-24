@@ -8,6 +8,7 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader, TensorDataset
 
+from ._io import require_materialized
 from .config import load_config
 from .env import SpinChainEnv
 from .math_utils import set_seed
@@ -19,7 +20,7 @@ from .provenance import hardware_label, stable_config_hash
 def collect_observations(env: SpinChainEnv, samples: int, cache_path: Path | None = None) -> torch.Tensor:
     rows = []
     if cache_path is not None and cache_path.exists():
-        cached = np.load(cache_path)
+        cached = np.load(require_materialized(cache_path))
         if cached.ndim == 2 and cached.shape[1] == env.N:
             rows = [torch.from_numpy(row.astype(np.float32, copy=False)).float() for row in cached[:samples]]
             print(f"resumed {len(rows)}/{samples} cached observations from {cache_path}", flush=True)

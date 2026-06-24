@@ -11,6 +11,7 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
+from ._io import load_torch
 from .config import load_config, save_config
 from .env import SpinChainEnv
 from .math_utils import gaussian_entropy_from_cov, set_seed
@@ -56,7 +57,7 @@ def load_vae(
     vae = VariationalAutoencoder(input_dim, latent_dim).to(device)
     checkpoint = Path(path)
     if checkpoint.exists():
-        payload = torch.load(checkpoint, map_location=device)
+        payload = load_torch(checkpoint, map_location=device)
         state = payload.get("model_state_dict", payload)
         vae.load_state_dict(state)
     else:
@@ -255,7 +256,7 @@ def main() -> None:
         device,
     ).to(device)
     if cfg.ppo.behavior_clone_checkpoint:
-        payload = torch.load(cfg.ppo.behavior_clone_checkpoint, map_location=device)
+        payload = load_torch(cfg.ppo.behavior_clone_checkpoint, map_location=device)
         state = payload.get("model_state_dict", payload)
         agent.load_state_dict(state, strict=False)
     optimizer = torch.optim.Adam((p for p in agent.parameters() if p.requires_grad), lr=cfg.ppo.learning_rate)
