@@ -1,24 +1,14 @@
-<div align="center">
+# SymQNet: Amortized Acquisition for Low-Latency Adaptive Hamiltonian Learning
 
-<h1>SymQNet: Amortized Acquisition for Low-Latency Adaptive Hamiltonian Learning</h1>
+**Yash Vardhan Tomar**¹, **Dheeraj Peddireddy**¹
 
-<p>
-  <b>Yash Vardhan Tomar</b> &nbsp;&middot;&nbsp; <b>Dheeraj Peddireddy</b>
-  <br>
-  Purdue University
-</p>
+¹ Purdue University
 
-<a href="https://arxiv.org/abs/2606.12808">
-  <img src="https://img.shields.io/badge/arXiv-2606.12808-b31b1b.svg" alt="arXiv" height="20">
-</a>
-
-</div>
+[![arXiv](https://img.shields.io/badge/arXiv-2606.12808-b31b1b.svg)](https://arxiv.org/abs/2606.12808)
 
 ---
 
-This repo contains the code, raw CSVs, and results for "SymQNet: Amortized Acquisition for Low-Latency Adaptive Hamiltonian Learning" (arXiv:2606.12808v3). 
-
-Submitted to IEEE Quantum Week International Workshop on Quantum Computing and Reinforcement Learning 2026.
+This repo contains the code, raw CSVs, and results for "SymQNet: Amortized Acquisition for Low-Latency Adaptive Hamiltonian Learning" (arXiv:2606.12808v3). Submitted to IEEE Quantum Week International Workshop on Quantum Computing and Reinforcement Learning 2026.
 
 ## Abstract
 
