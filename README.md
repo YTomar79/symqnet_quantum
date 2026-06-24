@@ -127,22 +127,125 @@ Training with `model.use_vae=true` requires the configured VAE checkpoint to exi
 pass `--allow-random-vae` only for smoke/debug runs. The best checkpoint is selected
 by held-out validation-task MSE, not by training-rollout MSE.
 
-## Reproducing the full result set
+## Reproducing the experiments
 
-The complete benchmark sweep — main result, N-scaling, native-noise evaluation,
-wider-prior transfer, ablations, and the reward-alignment diagnostic — is driven by
-a single script:
+Every stage below writes to a directory under `runs/`. Each script reads
+defaults from environment variables, so the same command reproduces the full
+result or, with a few overrides, runs a fast check first. The full sweep is
+CPU-heavy; run the smoke versions to validate your setup before committing
+compute.
+
+### 0. One command for everything
 
 ```bash
 bash reproduce.sh
 ```
 
-Individual stages can be run directly:
+This creates the virtual environment, runs the test suite, and executes the
+complete pipeline (steps 2–6 below). Override the budget for a faster pass:
 
 ```bash
-bash scripts/run_main_result.sh     # N=5 Pareto benchmark, five seeds
-bash scripts/run_scaling.sh         # N=8/10/12 MPS-backed scaling
-bash scripts/run_ablations.sh       # architecture ablations
+EPISODES=100 UPDATES=500 bash reproduce.sh
+```
+
+### 1. Set up the environment
+
+```bash
+git clone <repository-url>
+cd symqnet-public
+git lfs install                       # large result files are tracked with LFS
+python -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python -m pytest tests      # confirm the install
+```
+
+### 2. Pretrain the belief VAE
+
+The policy requires a frozen belief VAE. Pretrain one per chain size you intend
+to run (checkpoints land in `artifacts/vae_n{N}_l16.pt`):
+
+```bash
+.venv/bin/python -m symqnet.pretrain_vae --config configs/default.json
+```
+
+### 3. Main result (N=5 Pareto benchmark)
+
+Trains five SymQNet seeds, evaluates them against every baseline on a shared
+task bank over the shot budget, and writes paired statistics, figures, and
+tables to `runs/main_result/`:
+
+```bash
+bash scripts/run_main_result.sh
+```
+
+Fast wiring check first (seconds, not hours):
+
+```bash
+EPISODES=20 UPDATES=50 SEEDS=777 ALLOW_RANDOM_VAE=1 \
+  MAIN_COMPARISONS="fixed random" bash scripts/run_main_result.sh
+```
+
+Key outputs: `runs/main_result/paired_main.csv` (headline comparison),
+`shot_budget.svg`, `mse_latency_pareto.svg`, and per-seed checkpoints under
+`runs/main_result/symqnet_seed_*/best_agent.pt`.
+
+### 4. Scaling benchmark (N=8/10/12)
+
+Pretrains a VAE per size if missing, trains and evaluates on the MPS-backed
+TFIM backend, and aggregates the scaling claim:
+
+```bash
+bash scripts/run_scaling.sh
+```
+
+Run a single size, or a quick dry run that prints the commands without
+executing:
+
+```bash
+N_VALUES=8 bash scripts/run_scaling.sh
+DRY_RUN=1 bash scripts/run_scaling.sh
+```
+
+Key outputs: `runs/scaling/scaling_summary.csv`, `runs/scaling/claim_gate.json`
+(the pass/fail gate behind the headline result), and `runs/scaling/n{8,10,12}/`.
+
+### 5. Architecture ablations
+
+Runs the headline ablation set (`full`, `no_vae`, `no_graph`,
+`no_smc_feedback`, `mlp_only`) and writes a paired ablation table:
+
+```bash
+CONFIG_ROOT=configs/ablations_paper RUN_ROOT=runs/ablations_paper \
+  ABLATION_CONFIGS="full no_vae no_graph no_smc_feedback mlp_only" \
+  bash scripts/run_ablations.sh
+```
+
+Key output: `runs/ablations_paper/paired_ablations.csv`.
+
+### 6. Robustness and transfer
+
+```bash
+# Native decoherence / readout noise
+CONFIG=configs/noisy_native.json RUN_ROOT=runs/noisy_native \
+  bash scripts/run_main_result.sh
+
+# Wider-prior, out-of-distribution transfer (no retraining)
+.venv/bin/python -m symqnet.cross_eval \
+  --config configs/ood_wide.json \
+  --checkpoint runs/main_result/symqnet_seed_777/best_agent.pt \
+  --agent-name symqnet --include-baselines \
+  --out runs/ood_wide/shot_budget.csv \
+  --episodes-out runs/ood_wide/episodes.csv \
+  --task-bank runs/ood_wide/task_bank.npz
+```
+
+### 7. Validate a run
+
+Before treating any run as final, run the fail-fast readiness check:
+
+```bash
+.venv/bin/python -m symqnet.analysis.paper_readiness \
+  --run-root runs/main_result --config configs/default.json
 ```
 
 ## Citation
