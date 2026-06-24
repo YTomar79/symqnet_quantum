@@ -19,7 +19,7 @@ from symqnet.analysis.stats import p_adjust_bh, p_adjust_holm
 from symqnet.analysis.validate_results import validation_report
 from symqnet.baselines import make_baseline
 from symqnet.env import SpinChainEnv
-from symqnet.manifest import anonymize_manifest
+from symqnet.manifest import _project_root, anonymize_manifest
 from symqnet.metadata import build_metadata
 from symqnet.models.agent import SymQNetAgent
 from symqnet.models.vae import VariationalAutoencoder
@@ -425,8 +425,8 @@ def test_claim_gate_accepts_flat_reference_latency(tmp_path: Path) -> None:
         [
             [4, "symqnet", 1.0, 0.10],
             [7, "symqnet", 1.1, 0.12],
-            [4, "bald_2step", 10.0, 0.09],
-            [7, "bald_2step", 100.0, 0.10],
+            [4, "bald_2step_fast", 10.0, 0.09],
+            [7, "bald_2step_fast", 100.0, 0.10],
         ],
     )
 
@@ -445,14 +445,18 @@ def test_complexity_rows_capture_action_and_exponential_terms() -> None:
 
 
 def test_manifest_anonymization_strips_local_paths() -> None:
+    root = _project_root()
+    home = Path.home()
     payload = {
-        "python": "/Users/btf/Desktop/SymQNet/.venv/bin/python",
-        "path": "/Users/btf/Desktop/SymQNet/runs/main_result/shot_budget.csv",
-        "home": "/Users/btf/.cache/something",
+        "python": "/opt/example/.venv/bin/python",
+        "path": str(root / "runs" / "main_result" / "shot_budget.csv"),
+        "home": str(home / ".cache" / "something"),
     }
 
     scrubbed = anonymize_manifest(payload)
 
     assert scrubbed["python"] == "python"
     assert "<PROJECT_ROOT>" in scrubbed["path"]
-    assert "/Users/btf" not in scrubbed["home"]
+    assert str(root) not in scrubbed["path"]
+    assert "<HOME>" in scrubbed["home"]
+    assert str(home) not in scrubbed["home"]
