@@ -1,6 +1,26 @@
-# SymQNet: Amortized Acquisition for Low-Latency Adaptive Hamiltonian Learning
+<div align="center">
 
-This repo contains the code, raw CSVs, and results for "SymQNet: Amortized Acquisition for Low-Latency Adaptive Hamiltonian Learning" (arXiv:2606.12808v3). Submitted to IEEE Quantum Week International Workshop on Quantum Computing and Reinforcement Learning 2026. 
+<h1>SymQNet: Amortized Acquisition for Low-Latency Adaptive Hamiltonian Learning</h1>
+
+<p>
+  <b>Yash Vardhan Tomar</b> &nbsp;&middot;&nbsp; <b>Dheeraj Peddireddy</b>
+  <br>
+  Purdue University
+</p>
+
+<a href="https://arxiv.org/abs/2606.12808">
+  <img src="https://img.shields.io/badge/arXiv-2606.12808-b31b1b.svg" alt="arXiv" height="20">
+</a>
+
+</div>
+
+---
+
+This repo contains the code, raw CSVs, and results for "SymQNet: Amortized Acquisition for Low-Latency Adaptive Hamiltonian Learning" (arXiv:2606.12808v3). Submitted to IEEE Quantum Week International Workshop on Quantum Computing and Reinforcement Learning 2026.
+
+## Abstract
+
+Adaptive Hamiltonian learning is central to calibrating and characterizing quantum devices. In an adaptive controller, choosing the next experiment is itself a computation. Bayesian design rules are recomputed after every posterior update, and that step can take seconds. Across hundreds of shots, those seconds become a significant wall-clock cost for adaptivity. We introduce SymQNet, an amortized reinforcement-learning approach for low-latency adaptive Hamiltonian learning. SymQNet learns a posterior-conditioned acquisition policy offline, then uses a fast policy forward pass online while retaining Bayesian posterior feedback. On transverse-field Ising benchmarks, SymQNet substantially reduces acquisition latency relative to bounded Fisher-information search and bounded two-step Bayesian active learning by disagreement (BALD). At five qubits, it reduces acquisition-only decision latency by 47.1× and 72.6× relative to these online baselines; at twelve qubits, full simulated steps take 1.02 seconds for SymQNet versus 13.27 seconds for bounded two-step BALD. Overall, we show that learned acquisition can make adaptive Hamiltonian learning practical for repeated low-latency workloads.
 
 ## Repository layout
 
@@ -83,6 +103,21 @@ Before treating a run as final, validate it:
   --run-root runs/main_result --config configs/default.json
 ```
 
+## Citation
+
+If you use this code or find this work helpful, please cite:
+
+```bibtex
+@article{tomar2026symqnet,
+  title={SymQNet: Amortized Acquisition for Low-Latency Adaptive Hamiltonian Learning},
+  author={Tomar, Yash Vardhan and Peddireddy, Dheeraj},
+  journal={arXiv preprint arXiv:2606.12808},
+  year={2026}
+}
+```
+
 ## License
 
-Released under the MIT License. See [LICENSE](LICENSE).
+Released under the [MIT License](LICENSE).
+
+
