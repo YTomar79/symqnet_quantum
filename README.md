@@ -1,14 +1,12 @@
-# SymQNet
+# SymQNet: Amortized Acquisition for Low-Latency Adaptive Hamiltonian Learning
 
-**Amortized adaptive Hamiltonian learning for transverse-field Ising models.**
+This repo contains the code, raw CSVs, and results for "SymQNet: Amortized Acquisition for Low-Latency Adaptive Hamiltonian Learning" (arXiv:2606.12808v3). Submitted to QCE QCRL Workshop 2026. 
 
 SymQNet is a reinforcement-learning policy that chooses adaptive quantum
 measurement actions to estimate Hamiltonian parameters. It amortizes the cost of
 adaptive experimental design: once trained, it selects near-optimal measurements
 in a single forward pass, where classical online Bayesian design (BALD, Fisher-greedy)
-must solve an expensive optimization at every step. The policy targets the
-scaling-relevant regime where that per-step optimization becomes the dominant
-bottleneck.
+must solve an expensive optimization at every step.
 
 ## Key result
 
