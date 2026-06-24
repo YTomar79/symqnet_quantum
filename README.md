@@ -19,21 +19,76 @@ Adaptive Hamiltonian learning is central to calibrating and characterizing quant
 ## Repository layout
 
 ```
-symqnet/            Core package
-  env.py            Spin-chain simulator (statevector / MPS backends, shot noise)
-  smc.py            Sequential Monte Carlo particle filter
-  models/           Agent, graph encoder, temporal encoder, belief VAE
-  train_ppo.py      PPO training entry point
-  pretrain_vae.py   Belief-VAE pretraining
-  eval.py           Evaluation entry point
-  baselines.py      random / fixed / fixed_optimized / Fisher / BALD comparators
-  cross_eval.py     Zero-shot transfer / out-of-distribution evaluation
-  analysis/         Statistics, figures, tables, and result-validation tools
-configs/            Experiment, ablation, and smoke configurations
-scripts/            Sweep drivers for the main result, scaling, and ablations
-runs/               Committed experiment outputs (summaries, traces, manifests)
-artifacts/          Pretrained belief-VAE checkpoints
-tests/              Pipeline and readiness tests
+symqnet/                       Core package
+├── env.py                     TFIM spin-chain simulator (statevector / MPS backends, finite-shot + noise)
+├── smc.py                     Sequential Monte Carlo particle filter (belief over Hamiltonian params)
+├── backends.py                Statevector and MPS/TEBD simulation backends
+├── task_bank.py               Sampling and serialization of shared evaluation task banks
+├── baselines.py               random / fixed / fixed_optimized / Fisher-greedy / BALD comparators
+├── models/                    Policy network components
+│   ├── agent.py               SymQNetAgent: belief-conditioned actor-critic
+│   ├── graph.py               Graph encoder over the spin chain
+│   ├── temporal.py            Transformer encoder over measurement history
+│   └── vae.py                 Belief VAE for measurement-outcome embedding
+├── train_ppo.py               PPO training entry point
+├── pretrain_vae.py            Belief-VAE pretraining entry point
+├── behavior_clone.py          Behavior-cloning warm start
+├── eval.py                    Evaluation entry point (CLI)
+├── evaluation.py              Episode rollout and metric collection
+├── cross_eval.py              Zero-shot transfer / out-of-distribution evaluation
+├── config.py                  Experiment configuration schema and loading
+├── math_utils.py              Fisher information, CRLB, and numerical helpers
+├── metadata.py                Run metadata capture
+├── provenance.py              Seed / config-hash / hardware provenance records
+├── manifest.py                Per-run manifest writing and validation
+├── plot_shot_budget.py        Shot-budget figure helper
+├── paper_cpu_cluster.py       Parallel multi-seed sweep runner
+└── analysis/                  Post-processing: statistics, figures, tables, gating
+    ├── paired_main.py         Paired MSE/latency comparison with bootstrap CIs
+    ├── stats.py               Wilcoxon, Cliff's delta, multiple-comparison correction
+    ├── claim_gate.py          Pass/fail gate for the scaling claim
+    ├── complexity.py          Action-space / latency complexity analysis
+    ├── latency_scaling.py     Decision-latency scaling fits
+    ├── mps_validation.py      MPS-vs-statevector agreement checks
+    ├── paper_figures.py       Figure generation
+    ├── tables.py              LaTeX/CSV table generation
+    ├── paper_readiness.py     Fail-fast readiness check over a run directory
+    └── ...                    Additional per-metric analyses
+
+configs/                       Experiment configurations (JSON)
+├── default.json               Primary N=5 experiment
+├── smoke.json                 Fast wiring checks
+├── noisy_native.json          Native decoherence/readout-noise model
+├── ood_wide.json              Wider-prior transfer evaluation
+├── dad_transformer.json       Neural BED baseline config
+├── ablations_paper/           Headline ablations (full, no_vae, no_graph, no_smc_feedback, mlp_only)
+├── ablations/                 Extended exploratory ablations
+└── scaling/                   Per-chain-size configs (n4 … n12)
+
+scripts/                       Sweep drivers
+├── run_main_result.sh         N=5 Pareto benchmark, five seeds
+├── run_scaling.sh             N=8/10/12 MPS-backed scaling
+├── run_ablations.sh           Architecture ablation sweep
+├── run_qcrl2026_repositioned.sh   Full end-to-end suite
+└── ...                        Sensitivity, smoke, and learning-curve runners
+
+runs/                          Committed experiment outputs
+├── main_result/               N=5 benchmark: per-seed checkpoints, traces, tables, manifest
+│   ├── paired_main.csv        Headline paired comparison
+│   ├── shot_budget.{csv,svg}  MSE vs. shot-budget result
+│   ├── symqnet_seed_*/        Trained policy checkpoints per seed
+│   └── manifest.json          Inputs, file hashes, provenance
+├── scaling/                   N-scaling: claim_gate.json, scaling_summary.csv, n8/n10/n12
+├── ablations_paper/           Architecture ablation results
+├── noisy_native/              Native-noise evaluation
+├── ood_wide/                  Out-of-distribution transfer
+├── reward_mse_delta/          Reward-alignment diagnostic
+└── smoke*/                    Smoke-test outputs
+
+artifacts/                     Pretrained belief-VAE checkpoints (vae_n{5,8,10,12}_l16.pt)
+tests/                         Pipeline and readiness tests
+reproduce.sh                   One-command full reproduction
+requirements.txt               Pinned dependencies
 ```
 
 ## Installation
@@ -88,13 +143,6 @@ Individual stages can be run directly:
 bash scripts/run_main_result.sh     # N=5 Pareto benchmark, five seeds
 bash scripts/run_scaling.sh         # N=8/10/12 MPS-backed scaling
 bash scripts/run_ablations.sh       # architecture ablations
-```
-
-Before treating a run as final, validate it:
-
-```bash
-.venv/bin/python -m symqnet.analysis.paper_readiness \
-  --run-root runs/main_result --config configs/default.json
 ```
 
 ## Citation
